@@ -110,9 +110,10 @@ jobs:
           # come first on PATH and break Gecko's `rustup which rustc` probe.
           export PATH="$HOME/.cargo/bin:$PATH"
           export RUSTC="$HOME/.cargo/bin/rustc" CARGO="$HOME/.cargo/bin/cargo"
+          ls -la "$HOME/.cargo/bin" || true
           which -a rustc rustup cargo || true
-          rustup which rustc
-          rustc --version
+          rustup which rustc || true
+          rustc --version || true
           ./tools/development/build-gecko.sh ${{ matrix.gecko_args }} 2>&1 | tee gecko-build.log
 
       - name: Build idevice support library
