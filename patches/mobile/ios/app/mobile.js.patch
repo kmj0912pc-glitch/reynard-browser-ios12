@@ -1,8 +1,8 @@
 diff --git a/mobile/ios/app/mobile.js b/mobile/ios/app/mobile.js
-index e835b1c33d86..59ecb1f8696e 100644
+index e835b1c33d86..14d128e0fda2 100644
 --- a/mobile/ios/app/mobile.js
 +++ b/mobile/ios/app/mobile.js
-@@ -5,14 +5,63 @@
+@@ -5,17 +5,137 @@
  
  pref("toolkit.defaultChromeURI", "chrome://geckoview/content/geckoview.xhtml");
  
@@ -61,9 +61,83 @@ index e835b1c33d86..59ecb1f8696e 100644
 +// Allow autoplay configuration
 +pref("media.geckoview.autoplay.request", true);
 +
-+// Enable prelaunching of content processes.
-+pref("dom.ipc.processPrelaunch.enabled", true);
++// REYNARD(lowmem): Do not prelaunch spare content processes. Every idle
++// content process costs tens of MB, which a 1 GB device cannot spare.
++pref("dom.ipc.processPrelaunch.enabled", false);
 +
  // Complete the page load progress bar at different places according to this pref.
  // See the possible values below:
  // 0 no change
+ // 1 complete progressbar at DOMContentLoaded
+ // 2 complete progressbar at first MozAfterPaint after DOMContentLoaded
+ pref("page_load.progressbar_completion", 2);
++
++// ---------------------------------------------------------------------------
++// REYNARD(lowmem): Defaults for 1 GB devices (iPad mini 2/3, iPhone 5s, A7).
++// This fork already runs compositing and networking in the parent process,
++// so the parent (the app itself) is what jetsam kills when memory runs out.
++// Everything below trims memory in the parent and in child processes.
++// Any value can still be changed at runtime in about:config.
++// ---------------------------------------------------------------------------
++
++// Process model: one shared web content process, no per-site isolation.
++pref("fission.autostart", false);
++pref("dom.ipc.processCount", 1);
++pref("dom.suspend_inactive.enabled", true);
++// No in-memory bfcache viewers (back/forward pages are reloaded instead).
++pref("browser.sessionhistory.max_total_viewers", 0);
++pref("browser.cache.memory.capacity", 8192); // KiB
++
++// Codecs: A7 has hardware H.264 only. AV1/VP9 would be software-decoded,
++// which stalls playback and lets frames pile up until jetsam fires.
++pref("media.av1.enabled", false);
++pref("media.mediasource.vp9.enabled", false);
++pref("media.hevc.enabled", false);
++
++// MediaSource limits (see MediaSource::IsTypeSupported). 0 = no limit.
++// Off by default. To cap quality, set e.g. 1280 / 720 / 30 in about:config.
++pref("media.mediasource.max-video-width", 0);
++pref("media.mediasource.max-video-height", 0);
++pref("media.mediasource.max-video-framerate", 0);
++
++// SourceBuffer eviction thresholds (defaults: 150 MB video / 20 MB audio).
++pref("media.mediasource.eviction_threshold.video", 31457280); // 30 MiB
++pref("media.mediasource.eviction_threshold.audio", 8388608);  // 8 MiB
++
++// Decoded frame queues (defaults: 10 queued, all sent to the compositor).
++pref("media.video-queue.default-size", 5);
++pref("media.video-queue.send-to-compositor-size", 3);
++
++// Memory-backed media caches (defaults: 8 MiB each, 512 MiB combined).
++pref("media.memory_cache_max_size", 4096);            // KiB
++pref("media.memory_caches_combined_limit_kb", 32768); // KiB
++pref("media.cache_readahead_limit", 30);              // seconds
++pref("media.cache_resume_threshold", 15);             // seconds
++
++// Decoded image cache (default: up to 1/4 of RAM per process).
++pref("image.mem.surfacecache.max_size_kb", 65536);
++pref("image.mem.surfacecache.min_expiration_ms", 15000);
++
++// WebRender in the parent process.
++// A7 uses a PowerVR Series6 GPU like the A8X, where upstream Reynard found
++// that PBO uploads crash AGXGLDriver; with the compositor in the parent that
++// crash takes down the whole app.
++pref("gfx.webrender.pbo-uploads", false);
++pref("gfx.webrender.batched-texture-uploads", true);
++pref("gfx.webrender.compositor.surface-pool-size", 12);
++pref("gfx.webrender.enable-low-priority-pool", false);
++
++// JS GC: smaller nursery, earlier collections, fewer helper threads (A7 is
++// dual core).
++pref("javascript.options.mem.nursery.max_kb", 16384);
++pref("javascript.options.mem.gc_parallel_marking", false);
++pref("javascript.options.mem.gc_max_helper_threads", 2);
++pref("javascript.options.mem.gc_large_heap_size_min_mb", 200);
++pref("javascript.options.mem.gc_high_frequency_small_heap_growth", 200);
++pref("javascript.options.mem.gc_high_frequency_large_heap_growth", 130);
++pref("javascript.options.mem.gc_low_frequency_heap_growth", 130);
++
++// Optional, more aggressive (untested on this fork): decode in fewer
++// processes. Uncomment one at a time and check that video still plays.
++// pref("media.utility-process.enabled", false); // audio decoding -> RDD
++// pref("media.rdd-process.enabled", false);     // all decoding -> content

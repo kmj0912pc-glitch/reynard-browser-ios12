@@ -1,0 +1,34 @@
+diff --git a/dom/media/mediasource/MediaSource.cpp b/dom/media/mediasource/MediaSource.cpp
+index a6eaa2347c7d..f9e36164329e 100644
+--- a/dom/media/mediasource/MediaSource.cpp
++++ b/dom/media/mediasource/MediaSource.cpp
+@@ -146,6 +146,29 @@ void MediaSource::IsTypeSupported(const nsAString& aType,
+     return aRv.ThrowNotSupportedError("Can't play type");
+   }
+ 
++  // REYNARD(lowmem): Refuse video variants above the configured size/frame
++  // rate. Players such as YouTube pass width/height/framerate parameters to
++  // isTypeSupported() and skip variants we reject, which keeps decoded frame
++  // buffers and decoder work bounded on 1-2 GB devices.
++  if (containerType->Type().HasVideoMajorType()) {
++    const MediaExtendedMIMEType& extType = containerType->ExtendedType();
++    const int32_t maxWidth = StaticPrefs::media_mediasource_max_video_width();
++    const int32_t maxHeight = StaticPrefs::media_mediasource_max_video_height();
++    const int32_t maxFps = StaticPrefs::media_mediasource_max_video_framerate();
++    if (maxWidth > 0 && extType.GetWidth() &&
++        *extType.GetWidth() > maxWidth) {
++      return aRv.ThrowNotSupportedError("Can't play type");
++    }
++    if (maxHeight > 0 && extType.GetHeight() &&
++        *extType.GetHeight() > maxHeight) {
++      return aRv.ThrowNotSupportedError("Can't play type");
++    }
++    if (maxFps > 0 && extType.GetFramerate() &&
++        *extType.GetFramerate() > double(maxFps) + 0.5) {
++      return aRv.ThrowNotSupportedError("Can't play type");
++    }
++  }
++
+   bool hasVP9 = false;
+   const MediaCodecs& codecs = containerType->ExtendedType().Codecs();
+   for (const auto& codec : codecs.Range()) {

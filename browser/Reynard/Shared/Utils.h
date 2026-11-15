@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 BOOL getEntitlementValue(NSString *key);
 void updateJetsamControl(pid_t pid);
+void updateJetsamControlForProcessType(pid_t pid, NSString * _Nullable processType);
 int spawnRoot(NSString *path, NSArray<NSString *> *args);
 
 NS_ASSUME_NONNULL_END

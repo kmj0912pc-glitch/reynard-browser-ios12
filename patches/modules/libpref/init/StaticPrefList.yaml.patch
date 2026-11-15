@@ -1,5 +1,5 @@
 diff --git a/modules/libpref/init/StaticPrefList.yaml b/modules/libpref/init/StaticPrefList.yaml
-index b96e9d02beda..064a26b677ee 100644
+index b96e9d02beda..6d40bd0dcdc6 100644
 --- a/modules/libpref/init/StaticPrefList.yaml
 +++ b/modules/libpref/init/StaticPrefList.yaml
 @@ -5763,7 +5763,7 @@
@@ -144,7 +144,33 @@ index b96e9d02beda..064a26b677ee 100644
    value: true
  #else
    value: false
-@@ -12163,6 +12175,8 @@
+@@ -11918,6 +11930,25 @@
+   value: @IS_NOT_MOBILE@
+   mirror: always
+ 
++# REYNARD(lowmem): MediaSource.isTypeSupported() rejects video types whose
++# declared width/height/framerate exceed these limits, so adaptive players
++# (YouTube etc.) never pick a variant that low-memory devices cannot keep up
++# with. 0 disables a limit. The iOS defaults are set in mobile/ios/app/mobile.js.
++- name: media.mediasource.max-video-width
++  type: RelaxedAtomicInt32
++  value: 0
++  mirror: always
++
++- name: media.mediasource.max-video-height
++  type: RelaxedAtomicInt32
++  value: 0
++  mirror: always
++
++- name: media.mediasource.max-video-framerate
++  type: RelaxedAtomicInt32
++  value: 0
++  mirror: always
++
+ # Whether to enable MediaSource v2 support.
+ - name: media.mediasource.experimental.enabled
+   type: RelaxedAtomicBool
+@@ -12163,6 +12194,8 @@
    value: true
  #elif defined(XP_MACOSX)
    value: true
@@ -153,7 +179,7 @@ index b96e9d02beda..064a26b677ee 100644
  #elif defined(XP_LINUX) && !defined(ANDROID)
    value: true
  #elif defined(XP_FREEBSD)
-@@ -12207,6 +12221,8 @@
+@@ -12207,6 +12240,8 @@
    value: true
  #elif defined(XP_MACOSX)
    value: true
@@ -162,7 +188,7 @@ index b96e9d02beda..064a26b677ee 100644
  #elif defined(XP_LINUX) && !defined(ANDROID)
    value: true
  #elif defined(XP_FREEBSD)
-@@ -12240,6 +12256,8 @@
+@@ -12240,6 +12275,8 @@
    value: true
  #elif defined(XP_MACOSX)
    value: true
@@ -171,7 +197,7 @@ index b96e9d02beda..064a26b677ee 100644
  #elif defined(XP_LINUX) && !defined(ANDROID)
    value: true
  #elif defined(XP_FREEBSD)
-@@ -12259,6 +12277,8 @@
+@@ -12259,6 +12296,8 @@
    value: true
  #elif defined(XP_MACOSX)
    value: true
@@ -180,7 +206,7 @@ index b96e9d02beda..064a26b677ee 100644
  #elif defined(XP_LINUX) && !defined(ANDROID)
    value: true
  #elif defined(XP_FREEBSD)
-@@ -12278,6 +12298,8 @@
+@@ -12278,6 +12317,8 @@
    value: true
  #elif defined(XP_MACOSX)
    value: true
@@ -189,7 +215,7 @@ index b96e9d02beda..064a26b677ee 100644
  #elif defined(XP_LINUX) && !defined(ANDROID)
    value: true
  #elif defined(XP_FREEBSD)
-@@ -12297,6 +12319,8 @@
+@@ -12297,6 +12338,8 @@
    value: true
  #elif defined(XP_MACOSX)
    value: true
@@ -198,7 +224,7 @@ index b96e9d02beda..064a26b677ee 100644
  #elif defined(XP_LINUX) && !defined(ANDROID)
    value: true
  #elif defined(XP_FREEBSD)
-@@ -12323,7 +12347,7 @@
+@@ -12323,7 +12366,7 @@
    type: RelaxedAtomicBool
  #if defined(XP_WIN)
    value: true
@@ -207,7 +233,7 @@ index b96e9d02beda..064a26b677ee 100644
    value: true
  #elif defined(XP_LINUX) || defined(ANDROID)
    value: true
-@@ -12388,7 +12412,7 @@
+@@ -12388,7 +12431,7 @@
  #ifdef MOZ_FFMPEG
  -   name: media.ffmpeg.enabled
      type: RelaxedAtomicBool
@@ -216,7 +242,7 @@ index b96e9d02beda..064a26b677ee 100644
      value: false
    #else
      value: true
-@@ -14875,7 +14899,10 @@
+@@ -14875,7 +14918,10 @@
  - name: network.process.enabled
    type: RelaxedAtomicBool
    mirror: always
@@ -228,7 +254,7 @@ index b96e9d02beda..064a26b677ee 100644
    value: false # see bug 1641427
  #else
    value: true
-@@ -14924,7 +14951,13 @@
+@@ -14924,7 +14970,13 @@
  - name: network.http.network_access_on_socket_process.enabled
    type: RelaxedAtomicBool
    mirror: always
@@ -242,7 +268,7 @@ index b96e9d02beda..064a26b677ee 100644
  
  # Telemetry of traffic categories. Whether or not to enable HttpTrafficAnalyzer.
  - name: network.traffic_analyzer.enabled
-@@ -19676,7 +19709,7 @@
+@@ -19676,7 +19728,7 @@
  # on a platform that supports the GPU process, else true.
  - name: webgl.allow-in-parent
    type: bool

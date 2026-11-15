@@ -41,16 +41,54 @@ BOOL getEntitlementValue(NSString *key) {
     return hasValue;
 }
 
-void updateJetsamControl(pid_t pid) {
+// REYNARD(lowmem): Per-process jetsam limits.
+// Upstream gives every child 75% of physical memory. On a 1 GB device that is
+// ~768 MB per child, so a single runaway child (usually the web content
+// process) pushes the whole system into memory pressure and jetsam ends up
+// killing the parent, which also hosts the compositor and networking in this
+// fork, so the whole app disappears. Capping children lower makes the child
+// die on its own first (tab crash page / decoder restart) while the app stays
+// alive.
+static int jetsamLimitMBForProcessType(NSString * _Nullable processType) {
+    const uint64_t physicalMB = NSProcessInfo.processInfo.physicalMemory >> 20;
+    if (physicalMB >= 1536) {
+        return (int)(physicalMB * 0.75); // unchanged upstream behaviour
+    }
+    
+    // Gecko process type strings (XRE_GeckoProcessTypeToString).
+    double fraction = 0.15;
+    if ([processType isEqualToString:@"tab"]) {
+        fraction = 0.40;            // web content and WebExtension processes
+    } else if ([processType isEqualToString:@"rdd"]) {
+        fraction = 0.20;            // video decoding
+    } else if ([processType isEqualToString:@"utility"]) {
+        fraction = 0.08;            // audio decoding
+    }
+    
+    // Optional override for testing, e.g.
+    //   defaults write com.minh-ton.Reynard ReynardJetsamLimitMB.tab -int 380
+    if (processType.length > 0) {
+        NSString *key = [@"ReynardJetsamLimitMB." stringByAppendingString:processType];
+        NSInteger overrideMB = [NSUserDefaults.standardUserDefaults integerForKey:key];
+        if (overrideMB > 0) return (int)overrideMB;
+    }
+    
+    return (int)(physicalMB * fraction);
+}
+
+void updateJetsamControlForProcessType(pid_t pid, NSString * _Nullable processType) {
     if (!getEntitlementValue(@"com.apple.private.memorystatus")) return;
     
-    // FIXME: Find an actual resonable limit instead of setting 75% of physical mem
-    int limit = (int)((NSProcessInfo.processInfo.physicalMemory >> 20) * 0.75);
+    int limit = jetsamLimitMBForProcessType(processType);
     if (memorystatus_control(MEMORYSTATUS_CMD_SET_JETSAM_TASK_LIMIT, pid, limit, NULL, 0) == -1) {
-        NSLog(@"Failed to set Jetsam task limit to %d MB for pid %d: error: %s", limit, pid, strerror(errno));
+        NSLog(@"[Reynard] Failed to set Jetsam task limit to %d MB for pid %d (%@): error: %s", limit, pid, processType ?: @"?", strerror(errno));
     } else {
-        NSLog(@"Successfully set Jetsam task limit to %d MB for pid %d", limit, pid);
+        NSLog(@"[Reynard] Set Jetsam task limit to %d MB for pid %d (%@)", limit, pid, processType ?: @"?");
     }
+}
+
+void updateJetsamControl(pid_t pid) {
+    updateJetsamControlForProcessType(pid, nil);
 }
 
 int spawnRoot(NSString *path, NSArray<NSString *> *args) {

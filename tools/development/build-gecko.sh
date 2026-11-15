@@ -7,6 +7,15 @@ ROOT_DIR="$(CDPATH= cd -- "$SCRIPT_DIR/../.." && pwd)"
 FIREFOX_DIR="$ROOT_DIR/engine/firefox"
 
 TARGET="aarch64-apple-ios"
+USE_SCCACHE=false
+DISABLE_JEMALLOC=false
+
+for arg in "$@"; do
+	case "$arg" in
+		--use-sccache) USE_SCCACHE=true ;;
+		--disable-jemalloc) DISABLE_JEMALLOC=true ;;
+	esac
+done
 
 cd "$ROOT_DIR"
 
@@ -45,6 +54,14 @@ fi
 	echo "export WASM_CC=$WASI_SDK_DIR/bin/clang"
 	echo "export WASM_CXX=$WASI_SDK_DIR/bin/clang++"
 	echo "ac_add_options --with-wasi-sysroot=$WASI_SDK_DIR/share/wasi-sysroot"
+	if [ "$USE_SCCACHE" = true ]; then
+		SCCACHE_BIN="${SCCACHE_PATH:-$(command -v sccache)}"
+		echo "mk_add_options 'export RUSTC_WRAPPER=$SCCACHE_BIN'"
+		echo "ac_add_options --with-ccache=$SCCACHE_BIN"
+	fi
+	if [ "$DISABLE_JEMALLOC" = true ]; then
+		echo "ac_add_options --disable-jemalloc"
+	fi
 } > "$FIREFOX_DIR/.mozconfig"
 
 if ! rustup target list | grep -q "^$TARGET (installed)"; then

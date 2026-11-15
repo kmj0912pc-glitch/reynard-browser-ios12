@@ -1,0 +1,161 @@
+name: Build Reynard iOS 12 (lowmem 1GB)
+
+on:
+  push:
+    branches: [lowmem-1gb]
+    paths-ignore: ['ci-status/**']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-lowmem-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build (${{ matrix.variant }})
+    runs-on: macos-26
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - variant: jemalloc
+            gecko_args: --use-sccache
+          - variant: nojemalloc
+            gecko_args: --use-sccache --disable-jemalloc
+    env:
+      SCCACHE_GHA_ENABLED: "true"
+      SCCACHE_GHA_VERSION: ${{ matrix.variant }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: false
+
+      - name: Select Xcode 26 (Xcode 27 rejects iOS 12 targets)
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: '26.x'
+
+      - name: Install build dependencies
+        run: |
+          brew install python@3.12 cbindgen ldid
+          echo "$(brew --prefix python@3.12)/libexec/bin" >> "$GITHUB_PATH"
+          xcodebuild -version
+          clang --version
+          node --version
+          df -h .
+
+      - name: Initialize submodules
+        run: |
+          git submodule sync --recursive
+          git submodule update --init --recursive support/idevice
+          git submodule update --init --depth 1 engine/firefox
+
+      - name: Update Gecko source
+        run: ./tools/development/update-gecko.sh
+
+      - name: Apply Gecko patches
+        run: ./tools/development/apply-patches.sh < /dev/null
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-apple-ios
+
+      - name: Hash Rust toolchain
+        id: rust_toolchain
+        run: echo "hash=$(rustc -Vv | shasum -a 256 | cut -d ' ' -f 1)" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            ~/.mozbuild
+            tools/development/wasi-sdk
+          key: gecko-deps-${{ matrix.variant }}-${{ steps.rust_toolchain.outputs.hash }}-${{ hashFiles('engine/release.txt') }}
+          restore-keys: gecko-deps-${{ matrix.variant }}-
+
+      - uses: mozilla-actions/sccache-action@v0.0.11
+
+      - name: Build Gecko
+        env:
+          MOZ_NOSPAM: "1"
+        run: |
+          set -o pipefail
+          ./tools/development/build-gecko.sh ${{ matrix.gecko_args }} 2>&1 | tee gecko-build.log
+
+      - name: Build idevice support library
+        run: ./tools/development/build-idevice.sh
+
+      - name: Build app (unsigned)
+        run: |
+          set -o pipefail
+          rm -rf dist && mkdir -p dist
+          cp browser/Configuration/Reynard.xcconfig dist/Reynard.xcconfig
+          sed -i '' "s/CURRENT_BUILD = .*/CURRENT_BUILD = $(git rev-parse --short=7 HEAD)/" dist/Reynard.xcconfig
+          xcodebuild archive -scheme Reynard -project browser/Reynard.xcodeproj \
+            -sdk iphoneos -arch arm64 -configuration Release \
+            -xcconfig dist/Reynard.xcconfig -archivePath dist/Reynard.xcarchive \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" PROVISIONING_PROFILE_SPECIFIER="" 2>&1 | tee app-build.log
+          SC=dist/Reynard.xcarchive/Products/Applications/Reynard.app/Frameworks/libswift_Concurrency.dylib
+          if [ -f "$SC" ]; then
+            xcrun bitcode_strip "$SC" -r -o "$SC"
+            codesign --force --sign - "$SC"
+          fi
+
+      - name: Create IPA
+        run: |
+          ./tools/release/create-ipa.sh
+          mv dist/Reynard-Jailbroken.ipa "dist/Reynard-Jailbroken-lowmem-${{ matrix.variant }}.ipa"
+          ls -lh dist
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Reynard-Jailbroken-lowmem-${{ matrix.variant }}
+          path: dist/Reynard-Jailbroken-lowmem-${{ matrix.variant }}.ipa
+          if-no-files-found: error
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: lowmem-${{ github.run_number }}
+          name: Reynard iOS 12 lowmem build ${{ github.run_number }}
+          prerelease: true
+          files: dist/Reynard-Jailbroken-lowmem-${{ matrix.variant }}.ipa
+          body: |
+            Unsigned-then-ldid-signed jailbroken build of libf-de/reynard-browser-ios12 + lowmem-1gb patch.
+            jemalloc: try first. nojemalloc: use if jemalloc crashes at launch.
+            Commit: ${{ github.sha }}
+
+      # Push log tails to a branch so the build can be debugged without API access.
+      - name: Report status
+        if: always()
+        run: |
+          mkdir -p /tmp/status
+          {
+            echo "run=${{ github.run_number }} attempt=${{ github.run_attempt }} variant=${{ matrix.variant }}"
+            echo "job_status=${{ job.status }} sha=${{ github.sha }}"
+            date -u
+          } > /tmp/status/summary.txt
+          for f in gecko-build.log app-build.log; do
+            [ -f "$f" ] && tail -n 400 "$f" > "/tmp/status/$f" || true
+          done
+          if [ -f gecko-build.log ]; then
+            grep -nE "error:|Error |fatal error|make.*\*\*\*" gecko-build.log | tail -n 80 > /tmp/status/gecko-errors.txt || true
+          fi
+          if [ -f app-build.log ]; then
+            grep -nE "error:|BUILD FAILED|\*\* ARCHIVE" app-build.log | tail -n 80 > /tmp/status/app-errors.txt || true
+          fi
+          BR="ci-status-${{ matrix.variant }}"
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@users.noreply.github.com"
+          rm -rf /tmp/statusrepo && mkdir /tmp/statusrepo && cd /tmp/statusrepo
+          git init -q && git checkout -q -b "$BR"
+          cp /tmp/status/* .
+          git add -A && git commit -qm "status run ${{ github.run_number }} ${{ job.status }}"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" "$BR"
