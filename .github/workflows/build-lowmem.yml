@@ -40,6 +40,19 @@ jobs:
         with:
           xcode-version: '26.x'
 
+      - name: Free disk space
+        run: |
+          df -h /
+          KEEP="$(cd "$(xcode-select -p)/../.." && pwd -P)"
+          echo "Keeping $KEEP"
+          for x in /Applications/Xcode*.app; do
+            [ "$(cd "$x" && pwd -P)" = "$KEEP" ] || sudo rm -rf "$x" || true
+          done
+          xcrun simctl delete all >/dev/null 2>&1 || true
+          sudo rm -rf "$HOME/Library/Android" "$HOME/.dotnet" /usr/local/share/dotnet \
+            "$HOME/.ghcup" "$HOME/Library/Developer/CoreSimulator/Caches" 2>/dev/null || true
+          df -h /
+
       - name: Install build dependencies
         run: |
           brew install python@3.12 cbindgen ldid

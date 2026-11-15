@@ -8,7 +8,12 @@ FRAMEWORKS_DIR="${APP_BUNDLE}/Frameworks"
 GECKOVIEW_FW="${FRAMEWORKS_DIR}/GeckoView.framework"
 GECKOVIEW_FW_FRAMEWORKS="${GECKOVIEW_FW}/Frameworks"
 
-SIGN_IDENTITY="${EXPANDED_CODE_SIGN_IDENTITY:-${EXPANDED_CODE_SIGN_IDENTITY_NAME:-Apple Development}}"
+SIGN_IDENTITY="${EXPANDED_CODE_SIGN_IDENTITY:-}"
+# Unsigned CI builds (CODE_SIGNING_ALLOWED=NO) have no identity: sign ad hoc.
+# create-ipa.sh re-signs the final binaries with ldid anyway.
+if [ "${CODE_SIGNING_ALLOWED:-YES}" = "NO" ] || [ -z "${SIGN_IDENTITY}" ]; then
+	SIGN_IDENTITY=-
+fi
 DEFAULT_THEME_SRC="${SRCROOT}/../engine/firefox/toolkit/mozapps/extensions/default-theme"
 
 mkdir -p "${FRAMEWORKS_DIR}"
