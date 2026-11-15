@@ -55,10 +55,12 @@ jobs:
 
       - name: Install build dependencies
         run: |
-          brew install python@3.12 cbindgen ldid
+          brew install python@3.12 lld cbindgen llvm ldid
           echo "$(brew --prefix python@3.12)/libexec/bin" >> "$GITHUB_PATH"
+          echo "$(brew --prefix lld)/bin" >> "$GITHUB_PATH"
+          echo "$(brew --prefix llvm)/bin" >> "$GITHUB_PATH"
           xcodebuild -version
-          clang --version
+          "$(brew --prefix llvm)/bin/clang" --version
           node --version
           df -h .
 
@@ -96,6 +98,11 @@ jobs:
 
       - name: Build Gecko
         env:
+          # Apple's ld fails Gecko's linker probe; use Homebrew LLVM + lld
+          # like upstream Reynard CI.
+          CC: clang
+          CXX: clang++
+          LD: ld64.lld
           MOZ_NOSPAM: "1"
         run: |
           set -o pipefail
