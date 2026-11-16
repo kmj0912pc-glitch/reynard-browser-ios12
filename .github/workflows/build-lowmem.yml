@@ -24,8 +24,11 @@ jobs:
         include:
           - variant: jemalloc
             gecko_args: --use-sccache
-          - variant: nojemalloc
-            gecko_args: --use-sccache --disable-jemalloc
+          # nojemalloc variant disabled for now: two variants share the 10 GB
+          # Actions cache and evict each other's sccache entries, and a cold
+          # Gecko build does not fit in one 6h job on a 3-core runner.
+          # - variant: nojemalloc
+          #   gecko_args: --use-sccache --disable-jemalloc
     env:
       SCCACHE_GHA_ENABLED: "true"
       SCCACHE_GHA_VERSION: ${{ matrix.variant }}
