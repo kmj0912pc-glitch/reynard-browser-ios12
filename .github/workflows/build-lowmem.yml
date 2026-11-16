@@ -55,12 +55,20 @@ jobs:
 
       - name: Install build dependencies
         run: |
-          brew install python@3.12 lld cbindgen llvm ldid
+          brew install python@3.12 lld cbindgen ldid
+          # Gecko 152's bindgen crashes with libclang 23 (Homebrew's current
+          # llvm). Use an older LLVM for clang + libclang.
+          LLVM_FORMULA=""
+          for v in 20 21 19; do
+            if brew install "llvm@$v"; then LLVM_FORMULA="llvm@$v"; break; fi
+          done
+          [ -n "$LLVM_FORMULA" ] || { echo "No suitable llvm@N formula"; exit 1; }
+          echo "Using $LLVM_FORMULA"
           echo "$(brew --prefix python@3.12)/libexec/bin" >> "$GITHUB_PATH"
           echo "$(brew --prefix lld)/bin" >> "$GITHUB_PATH"
-          echo "$(brew --prefix llvm)/bin" >> "$GITHUB_PATH"
+          echo "$(brew --prefix "$LLVM_FORMULA")/bin" >> "$GITHUB_PATH"
           xcodebuild -version
-          "$(brew --prefix llvm)/bin/clang" --version
+          "$(brew --prefix "$LLVM_FORMULA")/bin/clang" --version
           node --version
           df -h .
 
@@ -179,7 +187,10 @@ jobs:
             [ -f "$f" ] && tail -n 400 "$f" > "/tmp/status/$f" || true
           done
           if [ -f gecko-build.log ]; then
-            grep -nE "error:|Error |fatal error|make.*\*\*\*" gecko-build.log | tail -n 80 > /tmp/status/gecko-errors.txt || true
+            grep -nE "error:|error\[|Error |fatal error|make.*\*\*\*|panicked|signal:|failed to run custom build" gecko-build.log | tail -n 120 > /tmp/status/gecko-errors.txt || true
+            grep -v "rerun-if-changed" gecko-build.log | grep -nE -B8 -A40 "failed to run custom build|error\[|error: could not compile|panicked|fatal error|error: " | head -n 1500 > /tmp/status/gecko-error-context.txt || true
+            head -n 150 gecko-build.log > /tmp/status/gecko-build-head.log
+            gzip -9 -c gecko-build.log > /tmp/status/gecko-build.log.gz || true
           fi
           if [ -f app-build.log ]; then
             grep -nE "error:|BUILD FAILED|\*\* ARCHIVE" app-build.log | tail -n 80 > /tmp/status/app-errors.txt || true
