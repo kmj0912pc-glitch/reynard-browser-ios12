@@ -106,6 +106,7 @@ jobs:
           MOZ_NOSPAM: "1"
         run: |
           set -o pipefail
+          exec > >(tee -a gecko-build.log) 2>&1
           # The runner's rustup is Homebrew's; its proxies break Gecko's
           # `rustup which rustc` probe. Point Gecko at the real toolchain
           # binaries instead of the proxies.
@@ -118,7 +119,7 @@ jobs:
           export PATH="$SYSROOT/bin:$PATH"
           "$RUSTC" --version
           "$CARGO" --version
-          ./tools/development/build-gecko.sh ${{ matrix.gecko_args }} 2>&1 | tee gecko-build.log
+          ./tools/development/build-gecko.sh ${{ matrix.gecko_args }}
 
       - name: Build idevice support library
         run: ./tools/development/build-idevice.sh
