@@ -108,6 +108,9 @@ jobs:
       - uses: mozilla-actions/sccache-action@v0.0.11
 
       - name: Build Gecko
+        # Leave time inside the 360 min job limit for the app build and the
+        # status report, which otherwise never runs on a job-level timeout.
+        timeout-minutes: 300
         env:
           # Apple's ld fails Gecko's linker probe; use Homebrew LLVM + lld
           # like upstream Reynard CI.
@@ -142,6 +145,7 @@ jobs:
         run: ./tools/development/build-idevice.sh
 
       - name: Build app (unsigned)
+        timeout-minutes: 30
         run: |
           set -o pipefail
           rm -rf dist && mkdir -p dist
@@ -185,6 +189,7 @@ jobs:
       # Push log tails to a branch so the build can be debugged without API access.
       - name: Report status
         if: always()
+        timeout-minutes: 5
         run: |
           mkdir -p /tmp/status
           {
