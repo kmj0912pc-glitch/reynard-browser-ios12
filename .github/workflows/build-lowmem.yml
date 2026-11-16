@@ -106,20 +106,22 @@ jobs:
           MOZ_NOSPAM: "1"
         run: |
           set -o pipefail
-          # The runner image ships a Homebrew rustup shim whose rustc/rustup
-          # come first on PATH and break Gecko's `rustup which rustc` probe.
-          export PATH="$HOME/.cargo/bin:$PATH"
-          export RUSTC="$HOME/.cargo/bin/rustc" CARGO="$HOME/.cargo/bin/cargo"
-          ls -la "$HOME/.cargo/bin" || true
+          # The runner's rustup is Homebrew's; its proxies break Gecko's
+          # `rustup which rustc` probe. Point Gecko at the real toolchain
+          # binaries instead of the proxies.
           which -a rustc rustup cargo || true
-          rustup which rustc || true
-          rustc --version || true
+          SYSROOT="$(rustc --print sysroot)"
+          echo "Rust sysroot: $SYSROOT"
+          ls "$SYSROOT/bin"
+          ls "$SYSROOT/lib/rustlib"
+          export RUSTC="$SYSROOT/bin/rustc" CARGO="$SYSROOT/bin/cargo"
+          export PATH="$SYSROOT/bin:$PATH"
+          "$RUSTC" --version
+          "$CARGO" --version
           ./tools/development/build-gecko.sh ${{ matrix.gecko_args }} 2>&1 | tee gecko-build.log
 
       - name: Build idevice support library
-        run: |
-          export PATH="$HOME/.cargo/bin:$PATH"
-          ./tools/development/build-idevice.sh
+        run: ./tools/development/build-idevice.sh
 
       - name: Build app (unsigned)
         run: |
