@@ -130,6 +130,12 @@ jobs:
           export PATH="$SYSROOT/bin:$PATH"
           "$RUSTC" --version
           "$CARGO" --version
+          # Homebrew LLVM has no iOS compiler-rt; @available() needs
+          # __isPlatformVersionAtLeast from libclang_rt.ios.a. Use Xcode's.
+          RT_IOS="$(ls -1d "$(xcode-select -p)"/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/*/lib/darwin/libclang_rt.ios.a | tail -n 1)"
+          [ -f "$RT_IOS" ] || { echo "libclang_rt.ios.a not found"; exit 1; }
+          echo "Using $RT_IOS"
+          export LDFLAGS="${LDFLAGS:+$LDFLAGS }$RT_IOS"
           ./tools/development/build-gecko.sh ${{ matrix.gecko_args }}
 
       - name: Build idevice support library
