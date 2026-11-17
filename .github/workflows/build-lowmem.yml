@@ -139,6 +139,14 @@ jobs:
           [ -f "$RT_IOS" ] || { echo "libclang_rt.ios.a not found"; exit 1; }
           echo "Using $RT_IOS"
           export LDFLAGS="${LDFLAGS:+$LDFLAGS }$RT_IOS"
+          # Homebrew clang otherwise uses Homebrew's own libc++ headers, which
+          # reference libc++.dylib symbols that iOS 12 lacks (lowmem-11/12
+          # crashed in dyld: Symbol not found basic_ofstream VTT). Use the
+          # iOS SDK's libc++ headers, which respect the 12.4 deployment target.
+          SDKROOT_IOS="$(xcrun --sdk iphoneos --show-sdk-path)"
+          [ -d "$SDKROOT_IOS/usr/include/c++/v1" ] || { echo "SDK libc++ headers not found"; exit 1; }
+          echo "Using libc++ headers from $SDKROOT_IOS/usr/include/c++/v1"
+          export CXXFLAGS="${CXXFLAGS:+$CXXFLAGS }-nostdinc++ -isystem $SDKROOT_IOS/usr/include/c++/v1"
           ./tools/development/build-gecko.sh ${{ matrix.gecko_args }}
 
       - name: Build idevice support library
@@ -161,6 +169,43 @@ jobs:
             xcrun bitcode_strip "$SC" -r -o "$SC"
             codesign --force --sign - "$SC"
           fi
+
+      - name: Check for libc++ symbols missing on iOS 12
+        run: |
+          set -o pipefail
+          APP=dist/Reynard.xcarchive/Products/Applications/Reynard.app
+          # libc++.dylib exports that appeared after iOS 12 (filesystem: 13,
+          # atomic wait: 14, verbose_abort/to_chars float: 16, pmr: 17,
+          # __hash_memory: newer libc++), plus the fstream VTT that crashed.
+          FAIL_PAT='basic_ofstream|basic_ifstream|basic_fstream|basic_filebuf|__fs10filesystem|__libcpp_verbose_abort|__libcpp_atomic_wait|__cxx_atomic_notify|__cxx_atomic_wait|__libcpp_atomic_monitor|3pmr|__hash_memory|8to_chars|10from_chars'
+          WARN_PAT='__itoa|__u32toa|__u64toa|__libcpp_'
+          : > libcxx-check.txt
+          : > libcxx-warn.txt
+          find "$APP" -type f \( -name '*.dylib' -o -name XUL -o -name GeckoView -o -perm -111 \) | while read -r f; do
+            file "$f" | grep -q 'Mach-O' || continue
+            U=$(xcrun nm -u "$f" 2>/dev/null || true)
+            hits=$(echo "$U" | grep -E "$FAIL_PAT" || true)
+            if [ -n "$hits" ]; then
+              echo "== $f" >> libcxx-check.txt
+              echo "$hits" | xcrun c++filt | head -n 40 >> libcxx-check.txt
+            fi
+            warn=$(echo "$U" | grep -E "$WARN_PAT" | grep -vE "$FAIL_PAT" || true)
+            if [ -n "$warn" ]; then
+              echo "== $f" >> libcxx-warn.txt
+              echo "$warn" | xcrun c++filt | head -n 20 >> libcxx-warn.txt
+            fi
+          done
+          if [ -s libcxx-warn.txt ]; then
+            echo "Warning: libc++ imports worth checking against iOS 12:"
+            cat libcxx-warn.txt
+            cat libcxx-warn.txt >> libcxx-check-warn.txt
+          fi
+          if [ -s libcxx-check.txt ]; then
+            echo "Binaries import libc++ symbols that iOS 12 does not provide:"
+            cat libcxx-check.txt
+            exit 1
+          fi
+          echo "No known post-iOS-12 libc++ imports found." | tee libcxx-check.txt
 
       - name: Create IPA
         run: |
@@ -198,6 +243,7 @@ jobs:
             echo "job_status=${{ job.status }} sha=${{ github.sha }}"
             date -u
           } > /tmp/status/summary.txt
+          for f in libcxx-check.txt libcxx-warn.txt; do [ -f "$f" ] && cp "$f" /tmp/status/ || true; done
           for f in gecko-build.log app-build.log; do
             [ -f "$f" ] && tail -n 400 "$f" > "/tmp/status/$f" || true
           done
