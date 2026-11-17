@@ -22,13 +22,13 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - variant: jemalloc
-            gecko_args: --use-sccache
-          # nojemalloc variant disabled for now: two variants share the 10 GB
-          # Actions cache and evict each other's sccache entries, and a cold
-          # Gecko build does not fit in one 6h job on a 3-core runner.
-          # - variant: nojemalloc
-          #   gecko_args: --use-sccache --disable-jemalloc
+          # jemalloc build (run 11, release lowmem-11) crashes at launch on
+          # Chimera/libhooker; upstream ships its jailbroken IPA with
+          # --disable-jemalloc for exactly that reason.
+          # - variant: jemalloc
+          #   gecko_args: --use-sccache
+          - variant: nojemalloc
+            gecko_args: --use-sccache --disable-jemalloc
     env:
       SCCACHE_GHA_ENABLED: "true"
       SCCACHE_GHA_VERSION: ${{ matrix.variant }}
@@ -110,7 +110,7 @@ jobs:
       - name: Build Gecko
         # Leave time inside the 360 min job limit for the app build and the
         # status report, which otherwise never runs on a job-level timeout.
-        timeout-minutes: 300
+        timeout-minutes: 330
         env:
           # Apple's ld fails Gecko's linker probe; use Homebrew LLVM + lld
           # like upstream Reynard CI.
@@ -177,7 +177,8 @@ jobs:
       - name: Publish release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: lowmem-${{ github.run_number }}
+          tag_name: lowmem-${{ github.run_number }}-${{ matrix.variant }}
+          target_commitish: ${{ github.sha }}
           name: Reynard iOS 12 lowmem build ${{ github.run_number }}
           prerelease: true
           files: dist/Reynard-Jailbroken-lowmem-${{ matrix.variant }}.ipa
