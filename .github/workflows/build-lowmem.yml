@@ -22,11 +22,11 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # jemalloc build (run 11, release lowmem-11) crashes at launch on
-          # Chimera/libhooker; upstream ships its jailbroken IPA with
-          # --disable-jemalloc for exactly that reason.
-          # - variant: jemalloc
-          #   gecko_args: --use-sccache
+          # Both variants, published as separate releases
+          # (lowmem-<run>-jemalloc / lowmem-<run>-nojemalloc). Upstream ships
+          # nojemalloc for libhooker jailbreaks; jemalloc is kept for testing.
+          - variant: jemalloc
+            gecko_args: --use-sccache
           - variant: nojemalloc
             gecko_args: --use-sccache --disable-jemalloc
     env:
