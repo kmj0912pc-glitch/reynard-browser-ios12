@@ -1,0 +1,23 @@
+
+✓ lowmem-1gb Build Reynard iOS 12 (lowmem 1GB) · 43947347315
+Triggered via push about 1 day ago
+
+JOBS
+✓ Build (jemalloc) in 3h34m5s (ID 133716611999)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/upload-artifact@v4, softprops/action-gh-release@v2. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Build (jemalloc): .github#4
+
+- 0% - 0 hits, 0 misses, 0 errors
+Build (jemalloc): .github#36
+
+- Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times.
+Build (jemalloc): .github#1
+
+
+ARTIFACTS
+Reynard-Jailbroken-lowmem-jemalloc
+
+For more information about the job, try: gh run view --job=133716611999
+View this run on GitHub: https://github.com/kmj0912pc-glitch/reynard-browser-ios12/actions/runs/43947347315

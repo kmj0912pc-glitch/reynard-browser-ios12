@@ -1,0 +1,23 @@
+
+X lowmem-1gb Build Reynard iOS 12 (lowmem 1GB) · 44111262040
+Triggered via push about 19 hours ago
+
+JOBS
+X Build (nojemalloc) in 15m2s (ID 134137172845)
+
+ANNOTATIONS
+X The job was not acquired by Runner of type hosted even after multiple attempts
+Build (nojemalloc): .github#1
+
+- Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times.
+Build (nojemalloc): .github#1
+
+- Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times.
+Build (nojemalloc): .github#1
+
+- Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times.
+Build (nojemalloc): .github#1
+
+
+To see what failed, try: gh run view 44111262040 --log-failed
+View this run on GitHub: https://github.com/kmj0912pc-glitch/reynard-browser-ios12/actions/runs/44111262040
