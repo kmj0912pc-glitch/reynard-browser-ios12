@@ -1,0 +1,400 @@
+modules/Timer.sys.mjs
+modules/TooltipTextProvider.sys.mjs
+modules/TrackingDBService.sys.mjs
+modules/Troubleshoot.sys.mjs
+modules/URIFixup.sys.mjs
+modules/URLDecorationAnnotationsService.sys.mjs
+modules/URLFormatter.sys.mjs
+modules/URLQueryStrippingListService.sys.mjs
+modules/UntrustedModulesPing.sys.mjs
+modules/UpdatePing.sys.mjs
+modules/UpdateTimerManager.sys.mjs
+modules/UpdateUtils.sys.mjs
+modules/UrlClassifierExceptionListService.sys.mjs
+modules/UrlClassifierHashCompleter.sys.mjs
+modules/UrlClassifierLib.sys.mjs
+modules/UrlClassifierListManager.sys.mjs
+modules/UrlClassifierRemoteSettingsService.sys.mjs
+modules/UrlUtils.sys.mjs
+modules/UsageReporting.sys.mjs
+modules/UserCharacteristicsPageService.sys.mjs
+modules/ValueExtractor.sys.mjs
+modules/WebAuthnFeature.sys.mjs
+modules/WebAuthnRelatedOriginFetcher.sys.mjs
+modules/WebChannel.sys.mjs
+modules/WebHandlerApp.sys.mjs
+modules/WebNavigation.sys.mjs
+modules/WebNavigationFrames.sys.mjs
+modules/WebRequest.sys.mjs
+modules/WebRequestUpload.sys.mjs
+modules/WebVTTParserWrapper.sys.mjs
+modules/WellKnownOpportunisticUtils.sys.mjs
+modules/WindowsMediaFoundationCDMOriginsListService.sys.mjs
+modules/XPCOMUtils.sys.mjs
+modules/XULStore.sys.mjs
+modules/amContentHandler.sys.mjs
+modules/amManager.sys.mjs
+modules/amWebAPI.sys.mjs
+modules/crypto-SDR.sys.mjs
+modules/ctypes.sys.mjs
+modules/dbg-browser-actors.js
+modules/extensionProcessScriptLoader.js
+modules/jsdebugger.sys.mjs
+modules/kvstore.sys.mjs
+modules/mozIntl.sys.mjs
+modules/nsAsyncShutdown.sys.mjs
+modules/nsCrashMonitor.sys.mjs
+modules/pdfjs.sys.mjs
+modules/reflect.sys.mjs
+modules/storage-json.sys.mjs
+modules/storage-rust.sys.mjs
+modules/txEXSLTRegExFunctions.sys.mjs
+modules/vtt.sys.mjs
+modules/addons/
+modules/addons/AddonRepository.sys.mjs
+modules/addons/AddonSettings.sys.mjs
+modules/addons/AddonUpdateChecker.sys.mjs
+modules/addons/GMPProvider.sys.mjs
+modules/addons/ModelHubProvider.sys.mjs
+modules/addons/ProductAddonChecker.sys.mjs
+modules/addons/SitePermsAddonProvider.sys.mjs
+modules/addons/XPIDatabase.sys.mjs
+modules/addons/XPIExports.sys.mjs
+modules/addons/XPIInstall.sys.mjs
+modules/addons/XPIProvider.sys.mjs
+modules/addons/crypto-utils.sys.mjs
+modules/addons/siteperms-addon-utils.sys.mjs
+modules/backgroundtasks/
+modules/backgroundtasks/BackgroundTask_exception.sys.mjs
+modules/backgroundtasks/BackgroundTask_failure.sys.mjs
+modules/backgroundtasks/BackgroundTask_message.sys.mjs
+modules/backgroundtasks/BackgroundTask_pingsender.sys.mjs
+modules/backgroundtasks/BackgroundTask_removeDirectory.sys.mjs
+modules/backgroundtasks/BackgroundTask_removeProfileFiles.sys.mjs
+modules/backgroundtasks/BackgroundTask_success.sys.mjs
+modules/backgroundtasks/dbg-actors.js
+modules/components-utils/
+modules/components-utils/ClientEnvironment.sys.mjs
+modules/components-utils/FilterExpressions.sys.mjs
+modules/components-utils/JsonSchemaValidator.sys.mjs
+modules/components-utils/Sampling.sys.mjs
+modules/components-utils/WindowsInstallsInfo.sys.mjs
+modules/components-utils/WindowsVersionInfo.sys.mjs
+modules/components-utils/mozjexl.sys.mjs
+modules/contentrelevancy/
+modules/contentrelevancy/private/
+modules/contentrelevancy/private/InputUtils.sys.mjs
+modules/handlers/
+modules/handlers/HandlerList.sys.mjs
+modules/media/
+modules/media/IdpSandbox.sys.mjs
+modules/media/PeerConnection.sys.mjs
+modules/media/PeerConnectionIdp.sys.mjs
+modules/megalist/
+modules/megalist/MegalistViewModel.sys.mjs
+modules/megalist/aggregator/
+modules/megalist/aggregator/Aggregator.sys.mjs
+modules/megalist/aggregator/DefaultAggregator.sys.mjs
+modules/megalist/aggregator/datasources/
+modules/megalist/aggregator/datasources/DataSourceBase.sys.mjs
+modules/megalist/aggregator/datasources/LoginDataSource.sys.mjs
+modules/narrate/
+modules/narrate/NarrateControls.sys.mjs
+modules/narrate/Narrator.sys.mjs
+modules/narrate/VoiceSelect.sys.mjs
+modules/psm/
+modules/psm/ClientAuthDialogService.sys.mjs
+modules/psm/DER.sys.mjs
+modules/psm/QWACs.sys.mjs
+modules/psm/RemoteSecuritySettings.sys.mjs
+modules/psm/X509.sys.mjs
+modules/psm/pippki.sys.mjs
+modules/services-common/
+modules/services-common/async.sys.mjs
+modules/services-common/hawkclient.sys.mjs
+modules/services-common/hawkrequest.sys.mjs
+modules/services-common/kinto-http-client.sys.mjs
+modules/services-common/kinto-offline-client.sys.mjs
+modules/services-common/kinto-storage-adapter.sys.mjs
+modules/services-common/observers.sys.mjs
+modules/services-common/rest.sys.mjs
+modules/services-common/tokenserverclient.sys.mjs
+modules/services-common/uptake-telemetry.sys.mjs
+modules/services-common/utils.sys.mjs
+modules/services-settings/
+modules/services-settings/Attachments.sys.mjs
+modules/services-settings/Database.sys.mjs
+modules/services-settings/IDBHelpers.sys.mjs
+modules/services-settings/RemoteSettings.worker.mjs
+modules/services-settings/RemoteSettingsClient.sys.mjs
+modules/services-settings/RemoteSettingsComponents.sys.mjs
+modules/services-settings/RemoteSettingsWorker.sys.mjs
+modules/services-settings/SharedUtils.sys.mjs
+modules/services-settings/SyncHistory.sys.mjs
+modules/services-settings/Utils.sys.mjs
+modules/services-settings/remote-settings.sys.mjs
+modules/sessionstore/
+modules/sessionstore/PrivacyFilter.sys.mjs
+modules/sessionstore/PrivacyLevel.sys.mjs
+modules/sessionstore/SessionHistory.sys.mjs
+modules/sessionstore/SessionStoreHelper.sys.mjs
+modules/shared/
+modules/shared/AddressComponent.sys.mjs
+modules/shared/AddressMetaData.sys.mjs
+modules/shared/AddressMetaDataExtension.sys.mjs
+modules/shared/AddressMetaDataLoader.sys.mjs
+modules/shared/AddressParser.sys.mjs
+modules/shared/AddressRecord.sys.mjs
+modules/shared/AutofillFormFactory.sys.mjs
+modules/shared/AutofillTelemetry.sys.mjs
+modules/shared/CreditCardRecord.sys.mjs
+modules/shared/CreditCardRuleset.sys.mjs
+modules/shared/FieldScanner.sys.mjs
+modules/shared/FormAutofillHandler.sys.mjs
+modules/shared/FormAutofillHeuristics.sys.mjs
+modules/shared/FormAutofillML.sys.mjs
+modules/shared/FormAutofillNameUtils.sys.mjs
+modules/shared/FormAutofillSection.sys.mjs
+modules/shared/FormAutofillUtils.sys.mjs
+modules/shared/FormStateManager.sys.mjs
+modules/shared/HeuristicsRegExp.sys.mjs
+modules/shared/LabelUtils.sys.mjs
+modules/shared/LoginFormFactory.sys.mjs
+modules/shared/NewPasswordModel.sys.mjs
+modules/shared/PasswordGenerator.sys.mjs
+modules/shared/PasswordRulesParser.sys.mjs
+modules/shared/PhoneNumber.sys.mjs
+modules/shared/PhoneNumberMetaData.sys.mjs
+modules/shared/PhoneNumberNormalizer.sys.mjs
+modules/subprocess/
+modules/subprocess/subprocess_common.sys.mjs
+modules/subprocess/subprocess_shared.js
+modules/subprocess/subprocess_shared_unix.js
+modules/subprocess/subprocess_unix.sys.mjs
+modules/subprocess/subprocess_unix.worker.js
+modules/subprocess/subprocess_worker_common.js
+modules/third_party/
+modules/third_party/fathom/
+modules/third_party/fathom/fathom.mjs
+modules/third_party/jsesc/
+modules/third_party/jsesc/jsesc.mjs
+modules/translations/
+modules/translations/LanguageDetector.sys.mjs
+modules/translations/cld-worker.js
+modules/translations/cld-worker.js.mem
+modules/workers/
+modules/workers/PromiseWorker.js
+modules/workers/PromiseWorker.mjs
+modules/workers/require.js
+moz-src/
+moz-src/dom/
+moz-src/dom/geolocation/
+moz-src/dom/geolocation/GeolocationUIUtils.sys.mjs
+moz-src/dom/notification/
+moz-src/dom/notification/MemoryNotificationDB.sys.mjs
+moz-src/dom/notification/NotificationDB.sys.mjs
+moz-src/dom/notification/NotificationStorage.sys.mjs
+moz-src/dom/quota/
+moz-src/dom/quota/QuotaUtilsService.sys.mjs
+moz-src/services/
+moz-src/services/crypto/
+moz-src/services/crypto/modules/
+moz-src/services/crypto/modules/WeaveCrypto.sys.mjs
+moz-src/services/crypto/modules/jwcrypto.sys.mjs
+moz-src/services/crypto/modules/utils.sys.mjs
+moz-src/third_party/
+moz-src/third_party/js/
+moz-src/third_party/js/qrcode/
+moz-src/third_party/js/qrcode/qrcode.mjs
+moz-src/toolkit/
+moz-src/toolkit/actors/
+moz-src/toolkit/actors/ColorPickerChild.sys.mjs
+moz-src/toolkit/actors/ColorPickerParent.sys.mjs
+moz-src/toolkit/actors/DateTimePickerChild.sys.mjs
+moz-src/toolkit/actors/DateTimePickerParent.sys.mjs
+moz-src/toolkit/actors/InputPickerChildCommon.sys.mjs
+moz-src/toolkit/actors/InputPickerParentCommon.sys.mjs
+moz-src/toolkit/components/
+moz-src/toolkit/components/doh/
+moz-src/toolkit/components/doh/DoHConfig.sys.mjs
+moz-src/toolkit/components/doh/DoHController.sys.mjs
+moz-src/toolkit/components/doh/DoHHeuristics.sys.mjs
+moz-src/toolkit/components/doh/TRRPerformance.sys.mjs
+moz-src/toolkit/components/ipprotection/
+moz-src/toolkit/components/ipprotection/GuardianTypes.sys.mjs
+moz-src/toolkit/components/ipprotection/IPPAuthProvider.sys.mjs
+moz-src/toolkit/components/ipprotection/IPPAutoRestore.sys.mjs
+moz-src/toolkit/components/ipprotection/IPPAutoStart.sys.mjs
+moz-src/toolkit/components/ipprotection/IPPChannelFilter.sys.mjs
+moz-src/toolkit/components/ipprotection/IPPExceptionsManager.sys.mjs
+moz-src/toolkit/components/ipprotection/IPPNetworkErrorObserver.sys.mjs
+moz-src/toolkit/components/ipprotection/IPPNetworkUtils.sys.mjs
+moz-src/toolkit/components/ipprotection/IPPNimbusHelper.sys.mjs
+moz-src/toolkit/components/ipprotection/IPPProxyManager.sys.mjs
+moz-src/toolkit/components/ipprotection/IPPSessionPrefManager.sys.mjs
+moz-src/toolkit/components/ipprotection/IPPStartupCache.sys.mjs
+moz-src/toolkit/components/ipprotection/IPProtectionActivator.sys.mjs
+moz-src/toolkit/components/ipprotection/IPProtectionServerlist.sys.mjs
+moz-src/toolkit/components/ipprotection/IPProtectionService.sys.mjs
+moz-src/toolkit/components/ipprotection/fxa/
+moz-src/toolkit/components/ipprotection/fxa/GuardianClient.sys.mjs
+moz-src/toolkit/components/ipprotection/fxa/IPPFxaActivateAuthProvider.sys.mjs
+moz-src/toolkit/components/ipprotection/fxa/IPPFxaAuthProvider.sys.mjs
+moz-src/toolkit/components/ipprotection/fxa/IPPFxaBaseAuthProvider.sys.mjs
+moz-src/toolkit/components/ipprotection/fxa/IPPSignInWatcher.sys.mjs
+moz-src/toolkit/components/pageextractor/
+moz-src/toolkit/components/pageextractor/DOMExtractor.sys.mjs
+moz-src/toolkit/components/qrcode/
+moz-src/toolkit/components/qrcode/encoder.mjs
+moz-src/toolkit/components/reader/
+moz-src/toolkit/components/reader/AboutReader.sys.mjs
+moz-src/toolkit/components/reader/Reader.worker.js
+moz-src/toolkit/components/reader/ReaderMode.sys.mjs
+moz-src/toolkit/components/reader/ReaderWorker.sys.mjs
+moz-src/toolkit/components/reader/readability/
+moz-src/toolkit/components/reader/readability/JSDOMParser.js
+moz-src/toolkit/components/reader/readability/Readability.js
+moz-src/toolkit/components/search/
+moz-src/toolkit/components/search/AddonSearchEngine.sys.mjs
+moz-src/toolkit/components/search/ConfigSearchEngine.sys.mjs
+moz-src/toolkit/components/search/OpenSearchEngine.sys.mjs
+moz-src/toolkit/components/search/OpenSearchLoader.sys.mjs
+moz-src/toolkit/components/search/OpenSearchLoaderChild.sys.mjs
+moz-src/toolkit/components/search/OpenSearchParser.sys.mjs
+moz-src/toolkit/components/search/PolicySearchEngine.sys.mjs
+moz-src/toolkit/components/search/SearchEngine.sys.mjs
+moz-src/toolkit/components/search/SearchEngineSelector.sys.mjs
+moz-src/toolkit/components/search/SearchService.sys.mjs
+moz-src/toolkit/components/search/SearchSettings.sys.mjs
+moz-src/toolkit/components/search/SearchShortcuts.sys.mjs
+moz-src/toolkit/components/search/SearchStaticData.sys.mjs
+moz-src/toolkit/components/search/SearchSuggestionController.sys.mjs
+moz-src/toolkit/components/search/SearchUtils.sys.mjs
+moz-src/toolkit/components/search/UserSearchEngine.sys.mjs
+moz-src/toolkit/components/uniffi-bindgen-gecko-js/
+moz-src/toolkit/components/uniffi-bindgen-gecko-js/components/
+moz-src/toolkit/components/uniffi-bindgen-gecko-js/components/generated/
+moz-src/toolkit/components/uniffi-bindgen-gecko-js/components/generated/RustBreachAlerts.sys.mjs
+moz-src/toolkit/components/uniffi-bindgen-gecko-js/components/generated/RustContextId.sys.mjs
+moz-src/toolkit/components/uniffi-bindgen-gecko-js/components/generated/RustFilterAdult.sys.mjs
+moz-src/toolkit/components/uniffi-bindgen-gecko-js/components/generated/RustInitRustComponents.sys.mjs
+moz-src/toolkit/components/uniffi-bindgen-gecko-js/components/generated/RustLogins.sys.mjs
+moz-src/toolkit/components/uniffi-bindgen-gecko-js/components/generated/RustRelevancy.sys.mjs
+moz-src/toolkit/components/uniffi-bindgen-gecko-js/components/generated/RustRemoteSettings.sys.mjs
+moz-src/toolkit/components/uniffi-bindgen-gecko-js/components/generated/RustSearch.sys.mjs
+moz-src/toolkit/components/uniffi-bindgen-gecko-js/components/generated/RustSuggest.sys.mjs
+moz-src/toolkit/components/uniffi-bindgen-gecko-js/components/generated/RustSync15.sys.mjs
+moz-src/toolkit/components/uniffi-bindgen-gecko-js/components/generated/RustTabs.sys.mjs
+moz-src/toolkit/components/uniffi-bindgen-gecko-js/components/generated/RustTracing.sys.mjs
+moz-src/toolkit/components/uniffi-bindgen-gecko-js/components/generated/RustWebextstorage.sys.mjs
+moz-src/toolkit/components/uniffi-js/
+moz-src/toolkit/components/uniffi-js/js/
+moz-src/toolkit/components/uniffi-js/js/UniFFI.sys.mjs
+moz-src/toolkit/modules/
+moz-src/toolkit/modules/ColorPickerPanel.sys.mjs
+moz-src/toolkit/modules/DateTimePickerPanel.sys.mjs
+moz-src/toolkit/modules/FaviconUtils.sys.mjs
+moz-src/toolkit/modules/InputPickerPanelCommon.sys.mjs
+moz-src/toolkit/modules/PrefUtils.sys.mjs
+moz-src/toolkit/profile/
+moz-src/toolkit/profile/ProfilesDatastoreService.sys.mjs
+res/
+res/EditorOverride.css
+res/contenteditable.css
+res/designmode.css
+res/grabber.gif
+res/language.properties
+res/multilocale.txt
+res/svg.css
+res/table-add-column-after-active.gif
+res/table-add-column-after-hover.gif
+res/table-add-column-after.gif
+res/table-add-column-before-active.gif
+res/table-add-column-before-hover.gif
+res/table-add-column-before.gif
+res/table-add-row-after-active.gif
+res/table-add-row-after-hover.gif
+res/table-add-row-after.gif
+res/table-add-row-before-active.gif
+res/table-add-row-before-hover.gif
+res/table-add-row-before.gif
+res/table-remove-column-active.gif
+res/table-remove-column-hover.gif
+res/table-remove-column.gif
+res/table-remove-row-active.gif
+res/table-remove-row-hover.gif
+res/table-remove-row.gif
+res/dtd/
+res/dtd/htmlmathml-f.ent
+res/fonts/
+res/fonts/mathfont.properties
+res/locale/
+res/locale/dom/
+res/locale/dom/dom.properties
+res/locale/layout/
+res/locale/layout/HtmlForm.properties
+res/locale/layout/MediaDocument.properties
+res/locale/layout/xmlparser.properties
+res/locale/necko/
+res/locale/necko/necko.properties
+
+sent 45324605 bytes  received 60426 bytes  9709897 bytes/sec
+total size is 44995241  speedup is 0.99
+
+ValidateEmbeddedBinary /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app/PlugIns/Reynard\ Helper.appex (in target 'Reynard' from project 'Reynard')
+    cd /Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/browser
+    /Applications/Xcode_26.6.app/Contents/Developer/usr/bin/embeddedBinaryValidationUtility /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app/PlugIns/Reynard\ Helper.appex -info-plist-path /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app/Info.plist
+
+ValidateEmbeddedBinary /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app/PlugIns/OpenIn.appex (in target 'Reynard' from project 'Reynard')
+    cd /Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/browser
+    /Applications/Xcode_26.6.app/Contents/Developer/usr/bin/embeddedBinaryValidationUtility /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app/PlugIns/OpenIn.appex -info-plist-path /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app/Info.plist
+
+GenerateDSYMFile /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/BuildProductsPath/Release-iphoneos/Reynard.app.dSYM /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app/Reynard (in target 'Reynard' from project 'Reynard')
+    cd /Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/browser
+    /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app/Reynard -o /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/BuildProductsPath/Release-iphoneos/Reynard.app.dSYM
+
+CopySwiftLibs /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app (in target 'Reynard' from project 'Reynard')
+    cd /Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/browser
+    builtin-swiftStdLibTool --copy --verbose --scan-executable /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app/Reynard --scan-folder /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app/Frameworks --scan-folder /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app/PlugIns --scan-folder /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app/SystemExtensions --scan-folder /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app/Extensions --scan-folder /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/BuildProductsPath/Release-iphoneos/GeckoView.framework --platform iphoneos --toolchain /var/run/com.apple.security.cryptexd/mnt/com.apple.MobileAsset.MetalToolchain-v17.6.109.0.7VkPbQ/Metal.xctoolchain --toolchain /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app/Frameworks --unsigned-destination /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/BuildProductsPath/SwiftSupport --strip-bitcode --strip-bitcode-tool /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/IntermediateBuildFilesPath/Reynard.build/Release-iphoneos/Reynard.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os --back-deploy-swift-concurrency --back-deploy-swift-span
+Ignoring --strip-bitcode because --sign was not passed
+
+ExtractAppIntentsMetadata (in target 'Reynard' from project 'Reynard')
+    cd /Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/browser
+    /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /var/run/com.apple.security.cryptexd/mnt/com.apple.MobileAsset.MetalToolchain-v17.6.109.0.7VkPbQ/Metal.xctoolchain --module-name Reynard --sdk-root /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.5.sdk --xcode-version 17F113 --platform-family iOS --deployment-target 12.4 --bundle-identifier com.minh-ton.Reynard.MH79SBCPK5 --output /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app --target-triple arm64-apple-ios12.4 --binary-file /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app/Reynard --dependency-file /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/IntermediateBuildFilesPath/Reynard.build/Release-iphoneos/Reynard.build/Objects-normal/arm64/Reynard_dependency_info.dat --stringsdata-file /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/IntermediateBuildFilesPath/Reynard.build/Release-iphoneos/Reynard.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/IntermediateBuildFilesPath/Reynard.build/Release-iphoneos/Reynard.build/Objects-normal/arm64/Reynard.SwiftFileList --metadata-file-list /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/IntermediateBuildFilesPath/Reynard.build/Release-iphoneos/Reynard.build/Reynard.DependencyMetadataFileList --static-metadata-file-list /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/IntermediateBuildFilesPath/Reynard.build/Release-iphoneos/Reynard.build/Reynard.DependencyStaticMetadataFileList --swift-const-vals-list /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/IntermediateBuildFilesPath/Reynard.build/Release-iphoneos/Reynard.build/Objects-normal/arm64/Reynard.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
+2026-11-18 10:04:34.148 appintentsmetadataprocessor[15624:1651737] Starting appintentsmetadataprocessor export
+2026-11-18 10:04:34.177 appintentsmetadataprocessor[15624:1651737] warning: Metadata extraction skipped. No AppIntents.framework dependency found.
+
+AppIntentsSSUTraining (in target 'Reynard' from project 'Reynard')
+    cd /Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/browser
+    /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsnltrainingprocessor --infoplist-path /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app/Info.plist --temp-dir-path /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/IntermediateBuildFilesPath/Reynard.build/Release-iphoneos/Reynard.build/ssu --bundle-id com.minh-ton.Reynard.MH79SBCPK5 --product-path /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app --extracted-metadata-path /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app/Metadata.appintents --deployment-postprocessing --metadata-file-list /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/IntermediateBuildFilesPath/Reynard.build/Release-iphoneos/Reynard.build/Reynard.DependencyMetadataFileList --source-file /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app/Info.plist --archive-ssu-assets
+2026-11-18 10:04:34.252 appintentsnltrainingprocessor[15630:1651748] Parsing options for appintentsnltrainingprocessor
+2026-11-18 10:04:34.255 appintentsnltrainingprocessor[15630:1651748] Starting AppIntents SSU YAML Generation
+2026-11-18 10:04:34.257 appintentsnltrainingprocessor[15630:1651748] No AppShortcuts found - Skipping.
+
+Strip /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app/Reynard (in target 'Reynard' from project 'Reynard')
+    cd /Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/browser
+    /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -D /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app/Reynard
+
+SetOwnerAndGroup runner:staff /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app (in target 'Reynard' from project 'Reynard')
+    cd /Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/browser
+    /usr/sbin/chown -RH runner:staff /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app
+
+SetMode u+w,go-w,a+rX /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app (in target 'Reynard' from project 'Reynard')
+    cd /Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/browser
+    /bin/chmod -RH u+w,go-w,a+rX /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app
+
+RegisterExecutionPolicyException /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app (in target 'Reynard' from project 'Reynard')
+    cd /Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/browser
+    builtin-RegisterExecutionPolicyException /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app
+
+Validate /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app (in target 'Reynard' from project 'Reynard')
+    cd /Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/browser
+    builtin-validationUtility /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app -validate-for-store -shallow-bundle -infoplist-subpath Info.plist
+
+Touch /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app (in target 'Reynard' from project 'Reynard')
+    cd /Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/browser
+    /usr/bin/touch -c /Users/runner/Library/Developer/Xcode/DerivedData/Reynard-fdzvezgvjaiexofduhcimdbakuta/Build/Intermediates.noindex/ArchiveIntermediates/Reynard/InstallationBuildProductsLocation/Applications/Reynard.app
+
+note: Run script build phase 'Copy Gecko Stuff' will be run during every build because the option to run the script phase "Based on dependency analysis" is unchecked. (in target 'Reynard' from project 'Reynard')
+** ARCHIVE SUCCEEDED **
+

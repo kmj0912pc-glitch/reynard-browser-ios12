@@ -1,0 +1,400 @@
+42:32.06 third_party/libwebrtc/net/dcsctp/socket/dcsctp_socket_gn
+42:32.23 third_party/libwebrtc/net/dcsctp/socket/heartbeat_handler_gn
+42:33.18 third_party/libwebrtc/net/dcsctp/socket/stream_reset_handler_gn
+42:33.18 third_party/libwebrtc/net/dcsctp/socket/packet_sender_gn
+42:34.06 third_party/libwebrtc/net/dcsctp/socket/transmission_control_block_gn
+42:34.13 third_party/libwebrtc/net/dcsctp/timer/task_queue_timeout_gn
+42:34.93 third_party/libwebrtc/net/dcsctp/timer/timer_gn
+42:35.02 third_party/libwebrtc/net/dcsctp/tx/outstanding_data_gn
+42:35.69 third_party/libwebrtc/net/dcsctp/tx/retransmission_error_counter_gn
+42:35.98 third_party/libwebrtc/net/dcsctp/tx/retransmission_queue_gn
+42:36.61 third_party/libwebrtc/net/dcsctp/tx/retransmission_timeout_gn
+42:36.89 third_party/libwebrtc/net/dcsctp/tx/rr_send_queue_gn
+42:37.28 third_party/libwebrtc/net/dcsctp/tx/stream_scheduler_gn
+42:37.81 third_party/libwebrtc/rtc_base/async_dns_resolver_gn
+42:38.27 third_party/libwebrtc/rtc_base/base64_gn
+42:38.84 third_party/libwebrtc/rtc_base/bit_buffer_gn
+42:39.11 third_party/libwebrtc/rtc_base/bitrate_tracker_gn
+42:39.80 third_party/libwebrtc/rtc_base/bitstream_reader_gn
+42:39.92 third_party/libwebrtc/rtc_base/byte_buffer_gn
+42:40.60 third_party/libwebrtc/rtc_base/callback_list_gn
+42:40.85 third_party/libwebrtc/rtc_base/checks_gn
+42:41.41 third_party/libwebrtc/rtc_base/containers/flat_containers_internal_gn
+42:41.62 third_party/libwebrtc/rtc_base/copy_on_write_buffer_gn
+42:42.32 third_party/libwebrtc/rtc_base/cpu_info_gn
+42:42.43 third_party/libwebrtc/rtc_base/criticalsection_gn
+42:43.48 third_party/libwebrtc/rtc_base/denormal_disabler_gn
+42:43.53 third_party/libwebrtc/rtc_base/event_tracer_gn
+42:44.68 third_party/libwebrtc/rtc_base/experiments/alr_experiment_gn
+42:44.83 third_party/libwebrtc/rtc_base/experiments/balanced_degradation_settings_gn
+42:45.44 third_party/libwebrtc/rtc_base/experiments/corruption_detection_frame_selector_settings_gn
+42:45.81 third_party/libwebrtc/rtc_base/experiments/encoder_info_settings_gn
+42:46.40 third_party/libwebrtc/rtc_base/experiments/encoder_speed_experiment_gn
+42:47.01 third_party/libwebrtc/rtc_base/experiments/field_trial_parser_gn
+42:47.43 third_party/libwebrtc/rtc_base/experiments/keyframe_interval_settings_experiment_gn
+42:48.38 third_party/libwebrtc/rtc_base/experiments/min_video_bitrate_experiment_gn
+42:48.47 third_party/libwebrtc/rtc_base/experiments/normalize_simulcast_size_experiment_gn
+42:49.15 third_party/libwebrtc/rtc_base/experiments/psnr_experiment_gn
+42:49.16 third_party/libwebrtc/rtc_base/experiments/quality_scaler_settings_gn
+42:49.99 third_party/libwebrtc/rtc_base/experiments/quality_scaling_experiment_gn
+42:50.11 third_party/libwebrtc/rtc_base/experiments/rate_control_settings_gn
+42:51.06 third_party/libwebrtc/rtc_base/frequency_tracker_gn
+42:51.07 third_party/libwebrtc/rtc_base/histogram_percentile_counter_gn
+42:51.82 third_party/libwebrtc/rtc_base/ip_address_gn
+42:51.83 third_party/libwebrtc/rtc_base/logging_gn
+42:52.81 third_party/libwebrtc/rtc_base/memory/aligned_malloc_gn
+42:53.16 third_party/libwebrtc/rtc_base/net_helpers_gn
+42:54.06 third_party/libwebrtc/rtc_base/network/sent_packet_gn
+42:59.24 third_party/libwebrtc/rtc_base/network_constants_gn
+43:10.59 third_party/libwebrtc/rtc_base/network_route_gn
+43:12.67 third_party/libwebrtc/rtc_base/null_socket_server_gn
+43:12.68 third_party/libwebrtc/rtc_base/platform_thread_gn
+43:14.35 third_party/libwebrtc/rtc_base/platform_thread_types_gn
+43:14.70 third_party/libwebrtc/rtc_base/race_checker_gn
+43:14.88 third_party/libwebrtc/rtc_base/random_gn
+43:15.91 third_party/libwebrtc/rtc_base/rate_statistics_gn
+43:15.91 third_party/libwebrtc/rtc_base/rate_limiter_gn
+43:17.15 third_party/libwebrtc/rtc_base/rate_tracker_gn
+43:17.52 third_party/libwebrtc/rtc_base/rtc_event_gn
+43:18.61 third_party/libwebrtc/rtc_base/rtc_numerics_gn
+43:18.72 third_party/libwebrtc/rtc_base/rtp_to_ntp_estimator_gn
+43:20.22 third_party/libwebrtc/rtc_base/sample_counter_gn
+43:20.61 third_party/libwebrtc/rtc_base/socket_address_gn
+43:21.91 third_party/libwebrtc/rtc_base/socket_gn
+43:22.12 third_party/libwebrtc/rtc_base/stringutils_gn
+43:22.99 third_party/libwebrtc/rtc_base/synchronization/sequence_checker_internal_gn
+43:23.04 third_party/libwebrtc/rtc_base/synchronization/yield_gn
+43:23.37 third_party/libwebrtc/rtc_base/synchronization/yield_policy_gn
+43:23.67 third_party/libwebrtc/rtc_base/system/cocoa_threading_gn
+43:24.26 third_party/libwebrtc/rtc_base/system/file_wrapper_gn
+43:25.19 third_party/libwebrtc/rtc_base/system/gcd_helpers_gn
+43:25.28 third_party/libwebrtc/rtc_base/task_utils/repeating_task_gn
+43:25.75 third_party/libwebrtc/rtc_base/threading_gn
+43:26.20 third_party/libwebrtc/rtc_base/timeutils_gn
+43:26.91 third_party/libwebrtc/rtc_base/weak_ptr_gn
+43:27.03 third_party/libwebrtc/rtc_base/zero_memory_gn
+43:27.77 third_party/libwebrtc/sdk/base_objc_gn
+43:27.86 third_party/libwebrtc/sdk/helpers_objc_gn
+43:29.96 W In file included from /Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/engine/firefox/obj-aarch64-apple-ios/third_party/libwebrtc/sdk/base_objc_gn/Unified_m_sdk_base_objc_gn0.m:20:
+43:29.97 W 10 warnings generated.
+43:30.90 third_party/libwebrtc/sdk/videocapture_objc_gn
+43:32.98 third_party/libwebrtc/sdk/videoframebuffer_objc_gn
+43:34.16 W In file included from /Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/engine/firefox/obj-aarch64-apple-ios/third_party/libwebrtc/sdk/videocapture_objc_gn/Unified_m_videocapture_objc_gn0.m:2:
+43:34.18 W In file included from /Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/engine/firefox/obj-aarch64-apple-ios/third_party/libwebrtc/sdk/videocapture_objc_gn/Unified_m_videocapture_objc_gn0.m:2:
+43:34.19 W In file included from /Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/engine/firefox/obj-aarch64-apple-ios/third_party/libwebrtc/sdk/videocapture_objc_gn/Unified_m_videocapture_objc_gn0.m:11:
+43:34.20 W 41 warnings generated.
+43:34.59 third_party/libwebrtc/system_wrappers/metrics_gn
+43:35.94 W In file included from /Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/engine/firefox/obj-aarch64-apple-ios/third_party/libwebrtc/system_wrappers/metrics_gn/Unified_cpp_metrics_gn0.cpp:2:
+43:35.94 W 1 warning generated.
+43:36.02 third_party/libwebrtc/system_wrappers/system_wrappers_gn
+43:36.16 W In file included from /Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/engine/firefox/obj-aarch64-apple-ios/third_party/libwebrtc/sdk/videoframebuffer_objc_gn/Unified_mm_oframebuffer_objc_gn0.mm:20:
+43:36.16 W 6 warnings generated.
+43:36.23 third_party/libwebrtc/third_party/pffft/pffft_gn
+43:36.67 third_party/libwebrtc/third_party/rnnoise/rnn_vad_gn
+43:36.84 third_party/libwebrtc/video/adaptation/video_adaptation_gn
+43:37.08 third_party/libwebrtc/video/config/encoder_config_gn
+43:37.95 third_party/libwebrtc/video/config/streams_config_gn
+43:39.01 third_party/libwebrtc/video/corruption_detection/corruption_classifier_gn
+43:39.15 third_party/libwebrtc/video/corruption_detection/frame_instrumentation_generator_impl_gn
+43:40.16 third_party/libwebrtc/video/corruption_detection/frame_selector_gn
+43:40.32 third_party/libwebrtc/video/corruption_detection/generic_mapping_functions_gn
+43:41.19 third_party/libwebrtc/video/corruption_detection/halton_frame_sampler_gn
+43:41.35 third_party/libwebrtc/video/corruption_detection/halton_sequence_gn
+43:42.15 third_party/libwebrtc/video/corruption_detection/utils_gn
+43:42.16 third_party/libwebrtc/video/corruption_detection/video_frame_sampler_gn
+43:42.89 third_party/libwebrtc/video/decode_synchronizer_gn
+43:42.89 third_party/libwebrtc/video/frame_cadence_adapter_gn
+43:43.81 third_party/libwebrtc/video/frame_decode_timing_gn
+43:43.84 third_party/libwebrtc/video/frame_dumping_decoder_gn
+43:44.74 third_party/libwebrtc/video/frame_dumping_encoder_gn
+43:44.75 third_party/libwebrtc/video/null_video_decoder_gn
+43:45.80 third_party/libwebrtc/video/render/incoming_video_stream_gn
+43:45.93 third_party/libwebrtc/video/render/video_render_frames_gn
+43:47.00 third_party/libwebrtc/video/task_queue_frame_decode_scheduler_gn
+43:47.27 third_party/libwebrtc/video/unique_timestamp_counter_gn
+43:47.85 third_party/libwebrtc/video/video_gn
+43:48.17 third_party/libwebrtc/video/video_receive_stream_timeout_tracker_gn
+43:49.32 third_party/libwebrtc/video/video_stream_buffer_controller_gn
+43:50.33 third_party/libwebrtc/video/video_stream_encoder_impl_gn
+43:50.71 third_party/msgpack
+43:51.50 third_party/sipcc
+43:51.73 W In file included from /Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/engine/firefox/obj-aarch64-apple-ios/third_party/libwebrtc/video/video_stream_encoder_impl_gn/Unified_cpp_ream_encoder_impl_gn0.cpp:65:
+43:51.73 W 1 warning generated.
+43:53.12 third_party/zstd/huf_decompress_amd64.o
+43:53.12 third_party/zstd
+43:53.32 toolkit/components/alerts
+43:53.84 toolkit/components/antitracking/bouncetrackingprotection
+43:56.54 toolkit/components/antitracking/scopedprefs
+43:57.36 toolkit/components/antitracking
+43:59.70 toolkit/components/autocomplete
+44:01.84 toolkit/components/backgroundhangmonitor
+44:03.51 toolkit/components/backgroundtasks
+44:09.20 toolkit/components/browser
+44:09.65 toolkit/components/build
+44:12.56 toolkit/components/cascade_bloom_filter
+44:13.99 toolkit/components/clearsitedata
+44:14.42 toolkit/components/commandlines
+44:16.25 toolkit/components/content-classifier/content_classifier_engine
+44:16.50 toolkit/components/content-classifier
+44:17.72 toolkit/components/contentanalysis
+44:18.79 toolkit/components/cookiebanners
+44:20.94 toolkit/components/credentialmanagement
+44:21.39 toolkit/components/ctypes
+44:24.03 toolkit/components/dap
+44:26.13 toolkit/components/downloads
+44:26.61 toolkit/components/extensions
+44:28.57 toolkit/components/extensions/webidl-api
+44:31.48 toolkit/components/extensions/webrequest
+44:34.74 toolkit/components/finalizationwitness
+44:37.62 toolkit/components/find
+44:37.93 toolkit/components/formautofill
+44:40.27 toolkit/components/glean/EventGIFFTMap.cpp.stub
+44:40.28 toolkit/components/glean/HistogramGIFFTMap.cpp.stub
+44:41.91 toolkit/components/glean/xpcom
+44:42.16 toolkit/components/glean/ScalarGIFFTMap.cpp.stub
+44:44.21 toolkit/components/jsoncpp/src/lib_json
+44:44.56 toolkit/components/mediasniffer
+44:45.42 toolkit/components/ml/backends/llama
+44:47.55 toolkit/components/ml
+44:48.38 toolkit/components/mozintl
+44:49.29 toolkit/components/nimbus
+44:49.69 toolkit/components/parentalcontrols
+44:50.89 toolkit/components/printingui/ipc
+44:50.92 toolkit/components/processtools
+44:52.86 toolkit/components/protobuf
+44:54.37 toolkit/components/reflect
+44:55.63 toolkit/components/reputationservice
+44:57.79 toolkit/components/resistfingerprinting
+45:02.93 W 1 warning generated.
+45:04.00 W 1 warning generated.
+45:06.34 toolkit/components/satchel
+45:08.81 W 1 warning generated.
+45:09.52 toolkit/components/sessionstore
+45:13.02 toolkit/components/startup
+45:15.50 toolkit/components/statusfilter
+45:16.60 toolkit/components/telemetry/TelemetryHistogramData.inc.stub
+45:16.85 W 1 warning generated.
+45:20.67 toolkit/components/terminator
+45:20.93 W In file included from /Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/engine/firefox/obj-aarch64-apple-ios/toolkit/components/protobuf/Unified_cpp_components_protobuf0.cpp:47:
+45:20.93 W 1 warning generated.
+45:21.04 toolkit/components/typeaheadfind
+45:22.07 toolkit/components/uniffi-js
+45:23.59 toolkit/components/windowwatcher
+45:23.59 toolkit/components/url-classifier
+45:32.06 toolkit/crashreporter/annotations
+45:33.64 toolkit/crashreporter
+45:36.03 toolkit/library/buildid.cpp.stub
+45:38.59 toolkit/mozapps/extensions
+45:42.66 toolkit/profile
+45:44.35 toolkit/xre
+45:46.70 tools/performance
+45:50.25 tools/profiler
+45:59.69 uriloader/base
+46:03.61 uriloader/exthandler
+46:11.52 uriloader/prefetch
+46:12.72 uriloader/preload
+46:13.46 widget/headless
+46:14.66 widget
+46:16.20 widget/uikit
+46:35.92 W /Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/engine/firefox/widget/uikit/GeckoEditableSupport.mm:2521:33: warning: 'UITextInteraction' is only available on iOS 13.0 or newer [-Wunguarded-availability-new]
+46:35.92 W  2521 | - (BOOL)interactionShouldBegin:(UITextInteraction*)aInteraction
+46:35.92 W       |                                 ^
+46:35.92 W /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITextInteraction.h:31:12: note: 'UITextInteraction' has been marked as being introduced in iOS 13.0 here, but the deployment target is iOS 12.4.0
+46:35.92 W    31 | @interface UITextInteraction : NSObject <UIInteraction>
+46:35.92 W       |            ^
+46:35.92 W /Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/engine/firefox/widget/uikit/GeckoEditableSupport.mm:2521:1: note: annotate 'interactionShouldBegin:atPoint:' with an availability attribute to silence this warning
+46:35.92 W  2521 | - (BOOL)interactionShouldBegin:(UITextInteraction*)aInteraction
+46:35.92 W       | ^
+46:35.92 W  2522 |                        atPoint:(CGPoint)aPoint {
+46:35.92 W       |                                                 API_AVAILABLE(ios(13.0))
+46:35.92 W /Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/engine/firefox/widget/uikit/GeckoEditableSupport.mm:2537:31: warning: 'UITextInteraction' is only available on iOS 13.0 or newer [-Wunguarded-availability-new]
+46:35.92 W  2537 | - (void)interactionWillBegin:(UITextInteraction*)aInteraction {
+46:35.92 W       |                               ^
+46:35.92 W /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITextInteraction.h:31:12: note: 'UITextInteraction' has been marked as being introduced in iOS 13.0 here, but the deployment target is iOS 12.4.0
+46:35.92 W    31 | @interface UITextInteraction : NSObject <UIInteraction>
+46:35.92 W       |            ^
+46:35.92 W /Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/engine/firefox/widget/uikit/GeckoEditableSupport.mm:2537:1: note: annotate 'interactionWillBegin:' with an availability attribute to silence this warning
+46:35.92 W  2537 | - (void)interactionWillBegin:(UITextInteraction*)aInteraction {
+46:35.92 W       | ^
+46:35.92 W       |                                                                API_AVAILABLE(ios(13.0))
+46:35.92 W /Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/engine/firefox/widget/uikit/GeckoEditableSupport.mm:2554:28: warning: 'UITextInteraction' is only available on iOS 13.0 or newer [-Wunguarded-availability-new]
+46:35.92 W  2554 | - (void)interactionDidEnd:(UITextInteraction*)aInteraction {
+46:35.92 W       |                            ^
+46:35.92 W /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITextInteraction.h:31:12: note: 'UITextInteraction' has been marked as being introduced in iOS 13.0 here, but the deployment target is iOS 12.4.0
+46:35.92 W    31 | @interface UITextInteraction : NSObject <UIInteraction>
+46:35.92 W       |            ^
+46:35.92 W /Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/engine/firefox/widget/uikit/GeckoEditableSupport.mm:2554:1: note: annotate 'interactionDidEnd:' with an availability attribute to silence this warning
+46:35.92 W  2554 | - (void)interactionDidEnd:(UITextInteraction*)aInteraction {
+46:35.92 W       | ^
+46:35.92 W       |                                                             API_AVAILABLE(ios(13.0))
+46:35.92 W 3 warnings generated.
+46:47.20 xpcom/base
+47:06.12 W In file included from /Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/engine/firefox/obj-aarch64-apple-ios/xpcom/base/Unified_mm_xpcom_base0.mm:2:
+47:06.13 W 1 warning generated.
+47:08.94 xpcom/build/Services.cpp.stub
+47:10.08 xpcom/components
+48:32.62 xpcom/ds
+50:31.58 xpcom/io
+51:01.09 xpcom/ioutils
+52:02.37 xpcom/reflect/xptcall/md/unix/xptcinvoke_asm_aarch64.o
+52:02.37 xpcom/reflect/xptcall/md/unix/xptcstubs_asm_aarch64.o
+52:02.89 xpcom/reflect/xptcall/md/unix
+52:19.08 xpcom/reflect/xptcall
+52:21.42 xpcom/reflect/xptinfo
+52:28.80 xpcom/string
+52:49.78 xpcom/threads
+56:40.95 xpfe/appshell
+56:46.92 js/xpconnect/shell
+56:52.43 media/ffvpx/libavcodec/libmozavcodec.dylib.symbols.stub
+56:53.70 media/ffvpx/libavcodec/aarch64
+56:58.88 media/ffvpx/libavcodec/aarch64/fdctdsp_neon.o
+56:59.28 media/ffvpx/libavcodec/aarch64/h264cmc_neon.o
+56:59.45 media/ffvpx/libavcodec/aarch64/h264dsp_neon.o
+56:59.63 W 2 warnings generated.
+56:59.65 media/ffvpx/libavcodec/aarch64/h264idct_neon.o
+56:59.92 media/ffvpx/libavcodec/aarch64/h264pred_neon.o
+57:00.11 media/ffvpx/libavcodec/aarch64/hpeldsp_neon.o
+57:00.34 media/ffvpx/libavcodec/aarch64/idctdsp_neon.o
+57:00.54 media/ffvpx/libavcodec/aarch64/mpegaudiodsp_neon.o
+57:00.69 media/ffvpx/libavcodec/aarch64/neon.o
+57:00.89 media/ffvpx/libavcodec/aarch64/simple_idct_neon.o
+57:01.16 media/ffvpx/libavcodec/aarch64/videodsp.o
+57:01.50 media/ffvpx/libavcodec/aarch64/vp8dsp_neon.o
+57:01.68 media/ffvpx/libavcodec/aarch64/vp9itxfm_16bpp_neon.o
+57:02.04 media/ffvpx/libavcodec/aarch64/vp9itxfm_neon.o
+57:02.31 media/ffvpx/libavcodec/aarch64/vp9lpf_16bpp_neon.o
+57:02.56 media/ffvpx/libavcodec/aarch64/vp9lpf_neon.o
+57:02.76 media/ffvpx/libavcodec/aarch64/vp9mc_16bpp_neon.o
+57:03.02 media/ffvpx/libavcodec/aarch64/vp9mc_aarch64.o
+57:03.34 media/ffvpx/libavcodec/aarch64/vp9mc_neon.o
+57:04.07 media/ffvpx/libavcodec/bsf
+57:06.80 media/ffvpx/libavcodec
+58:13.46 media/ffvpx/libavutil/libmozavutil.dylib.symbols.stub
+58:15.59 media/ffvpx/libavutil/aarch64
+58:16.99 media/ffvpx/libavutil/aarch64/float_dsp_neon.o
+58:17.51 media/ffvpx/libavutil/aarch64/tx_float_neon.o
+58:18.49 media/ffvpx/libavutil
+58:24.01 W 3 warnings generated.
+58:26.23 W 2 warnings generated.
+58:35.39 W 1 warning generated.
+58:38.94 dom/media/eme/clearkey
+58:39.27 W 2 warnings generated.
+58:41.98 media/gmp-clearkey/0.1
+58:46.05 security/nss/cmd/certutil
+58:47.09 security/nss/cmd/lib
+58:50.98 security/nss/cmd/pk12util
+58:51.23 security/nss/lib/freebl/out.freebl.def.stub
+58:51.24 security/nss/lib/ckfw
+58:52.73 security/nss/lib/freebl
+58:59.74 security/nss/lib/jar
+59:13.03 security/nss/lib/softoken/out.softokn.def.stub
+59:15.20 security/nss/lib/softoken
+59:22.80 toolkit/components/jsoncpp
+59:23.27 modules/zlib/src
+59:23.86 toolkit/components/telemetry/pingsender
+59:29.55 xpcom/glue/standalone
+59:29.74 build/pure_virtual/libpure_virtual.a
+59:30.77 config/external/wasm2c_sandbox_compiler/wasm2c
+59:32.63 dom/media/fake-cdm/libfake.dylib
+59:38.85 dom/media/gmp-plugin-openh264/libfakeopenh264.dylib
+59:40.56 media/libsoundtouch/src
+59:42.41 dom/base
+59:47.51 media/libsoundtouch/src/rlboxsoundtouch.wasm.c.stub
+65:46.60 security/rlbox
+66:11.20 W 1 warning generated.
+66:15.54 W 3 warnings generated.
+66:16.71 W 1 warning generated.
+66:18.18 W 1 warning generated.
+66:34.43 security/rlbox/rlbox.wasm.c.stub
+85:12.97 dom/media
+114:54.36 dom/origin-trials
+115:01.28 extensions/spellcheck/hunspell/glue
+115:41.31 gfx/ots/src
+116:11.38 gfx/thebes
+116:19.70 js/src/gc
+120:43.71 layout/style
+135:39.96 media/libdav1d
+135:59.06 netwerk/base
+136:00.36 netwerk/dns
+145:07.32 parser/expat
+145:08.36 parser/htmlparser
+145:51.72 security/manager/ssl
+145:59.52 toolkit/components/glean
+150:02.10 toolkit/components/telemetry
+151:49.82 toolkit/library/buildid.cpp.stub
+151:51.95 toolkit/library
+151:53.22 xpcom/build
+152:16.24 mozglue/build/libmozglue.dylib
+152:35.79 dom/media/mediasink
+153:42.82 dom/media/ogg
+153:50.59 toolkit/components/telemetry/pingsender/pingsender
+153:52.10 config/external/mozinference/libmozinference.dylib
+153:53.36 security/libnss3.dylib
+153:54.73 config/external/gkcodecs/libgkcodecs.dylib
+153:57.18 config/external/lgpllibs/liblgpllibs.dylib
+153:58.37 js/src/build/libjs_static.a
+154:04.59 media/ffvpx/libavutil/libmozavutil.dylib
+154:06.56 media/gmp-clearkey/0.1/libclearkey.dylib
+154:07.12 security/nss/cmd/certutil/certutil
+154:08.53 security/nss/cmd/pk12util/pk12util
+154:10.45 security/nss/lib/freebl/libfreebl3.dylib
+154:12.01 security/nss/lib/softoken/libsoftokn3.dylib
+154:13.88 media/ffvpx/libavcodec/libmozavcodec.dylib
+296:10.82 [1m[92m    Finished[0m `release` profile [optimized] target(s) in 294m 20s
+296:17.05 toolkit/library/rust/libgkrust.a
+296:17.34 toolkit/library/build/XUL
+296:29.96 ipc/app/plugin-container
+296:30.00 js/xpconnect/shell/xpcshell
+296:30.64 ./event-list.json.stub
+296:30.97 Successfully generated event list for DevTools
+296:31.02 ./reserved-js-words.js.stub
+296:33.71 ./last_modified.json.stub
+296:33.98 ./aboutNetErrorCodes.js.stub
+296:34.16 ./lib.gecko.glean.d.ts.stub
+296:34.22 ./FeatureManifest.sys.mjs.stub
+296:34.69 ./PromiseWorker.js.stub
+296:34.71 ./PromiseWorker.mjs.stub
+296:35.11 ./RFPTargetConstants.sys.mjs.stub
+296:35.12 ./ScalarArtifactDefinitions.json.stub
+296:35.38 ./EventArtifactDefinitions.json.stub
+296:35.39 ./dependentlibs.list.stub
+296:35.75 ./multilocale.txt.stub
+296:35.94 ./built_in_addons.json.stub
+296:36.05 ./error_list.json.stub
+296:40.60 toolkit/locales/default.locale.stub
+296:43.34 W 946 compiler warnings present.
+296:46.50 W Overall system resources - Wall time: 17797s; CPU: 89%; Read bytes: 124943830016; Write bytes: 102862479360; Read time: 3343521; Write time: 1295031
+296:46.58 W Swap in/out (MB): 52098.171875/1473.59375
+296:46.59 W (suppressed 908 warnings in third-party code)
+296:46.59 W (suppressed 1 warnings in dom/media/platforms/apple)
+296:46.59 W (suppressed 4 warnings in dom/media/systemservices/objc_video_capture)
+296:46.59 W (suppressed 1 warnings in dom/media/webrtc)
+296:46.59 W (suppressed 1 warnings in dom/media/webrtc/libwebrtcglue)
+296:46.59 W (suppressed 2 warnings in gfx/2d)
+296:46.59 W (suppressed 3 warnings in gfx/gl)
+296:46.59 W (suppressed 4 warnings in ipc/chromium/src/base)
+296:46.59 W (suppressed 2 warnings in js/src/vm)
+296:46.59 W (suppressed 1 warnings in xpcom/base)
+296:46.59 W warning: dom/media/platforms/apple/AppleVTDecoder.cpp:676:7 [-Wunguarded-availability-new] 'kVTDecompressionPropertyKey_UsingHardwareAcceleratedVideoDecoder' is only available on iOS 17.0 or newer
+296:46.59 W warning: dom/media/platforms/apple/AppleVTDecoder.cpp:736:7 [-Wunguarded-availability-new] 'kVTVideoDecoderSpecification_EnableHardwareAcceleratedVideoDecoder' is only available on iOS 17.0 or newer
+296:46.59 W warning: dom/media/platforms/apple/AppleVTEncoder.cpp:39:11 [-Wunguarded-availability-new] 'kVTVideoEncoderSpecification_RequireHardwareAcceleratedVideoEncoder' is only available on iOS 17.4 or newer
+296:46.59 W warning: dom/media/platforms/apple/AppleVTEncoder.cpp:40:11 [-Wunguarded-availability-new] 'kVTVideoEncoderSpecification_EnableLowLatencyRateControl' is only available on iOS 14.5 or newer
+296:46.59 W warning: dom/media/platforms/apple/AppleVTEncoder.cpp:51:7 [-Wunguarded-availability-new] 'kVTVideoEncoderSpecification_EnableHardwareAcceleratedVideoEncoder' is only available on iOS 17.4 or newer
+296:46.59 W warning: dom/media/platforms/apple/AppleVTEncoder.cpp:82:27 [-Wunguarded-availability-new] 'kVTCompressionPropertyKey_ConstantBitRate' is only available on iOS 16.0 or newer
+296:46.59 W warning: dom/media/platforms/apple/AppleVTEncoder.cpp:121:9 [-Wunguarded-availability-new] 'kVTCompressionPropertyKey_PrioritizeEncodingSpeedOverQuality' is only available on iOS 14.0 or newer
+296:46.59 W warning: dom/media/platforms/apple/AppleVTEncoder.cpp:485:24 [-Wunguarded-availability-new] 'kVTCompressionPropertyKey_BaseLayerFrameRateFraction' is only available on iOS 14.5 or newer
+296:46.59 W warning: dom/media/platforms/apple/AppleVTEncoder.cpp:536:16 [-Wunguarded-availability-new] 'kVTCompressionPropertyKey_UsingHardwareAcceleratedVideoEncoder' is only available on iOS 17.4 or newer
+296:46.59 W warning: dom/media/systemservices/objc_video_capture/device_info_objc.mm:53:19 [-Wunguarded-availability-new] 'isSuspended' is only available on iOS 14.0 or newer
+296:46.59 W warning: dom/media/systemservices/objc_video_capture/device_info_objc.mm:69:19 [-Wunguarded-availability-new] 'isSuspended' is only available on iOS 14.0 or newer
+296:46.59 W warning: dom/media/systemservices/objc_video_capture/device_info_objc.mm:87:17 [-Wunguarded-availability-new] 'isSuspended' is only available on iOS 14.0 or newer
+296:46.59 W warning: gfx/layers/NativeLayerCA.mm:500:35 [-Wunguarded-availability-new] 'CGColorGetConstantColor' is only available on iOS 14.0 or newer
+296:46.59 W warning: gfx/layers/NativeLayerCA.mm:500:59 [-Wunguarded-availability-new] 'kCGColorBlack' is only available on iOS 14.0 or newer
+296:46.59 W warning: gfx/layers/NativeLayerCA.mm:1549:20 [-Wunguarded-availability-new] 'requiresFlushToResumeDecoding' is only available on iOS 14.0 or newer
+296:46.59 W warning: obj-aarch64-apple-ios/third_party/libwebrtc/common_audio/common_audio_gn/Unified_cpp_common_audio_gn0.cpp:110:10 [-Wpragma-pack] the current #pragma pack alignment value is modified in the included file
+296:46.59 W warning: widget/uikit/GeckoEditableSupport.mm:2521:33 [-Wunguarded-availability-new] 'UITextInteraction' is only available on iOS 13.0 or newer
+296:46.59 W warning: widget/uikit/GeckoEditableSupport.mm:2537:31 [-Wunguarded-availability-new] 'UITextInteraction' is only available on iOS 13.0 or newer
+296:46.59 W warning: widget/uikit/GeckoEditableSupport.mm:2554:28 [-Wunguarded-availability-new] 'UITextInteraction' is only available on iOS 13.0 or newer
+296:46.65 To view a profile of the build, run |mach resource-usage|.
+296:46.65 We know it took a while, but your build finally finished successfully!
+296:46.65 To take your build for a test drive, run: |mach run|
+Streaming resource usage profile to: /Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/engine/firefox/obj-aarch64-apple-ios/.mozbuild/logs/build/profile_log_20261118_050153.json

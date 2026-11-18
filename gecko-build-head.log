@@ -1,0 +1,150 @@
+/opt/homebrew/opt/rustup/bin/rustc
+/opt/homebrew/opt/rustup/bin/rustup
+/opt/homebrew/bin/rustup
+/opt/homebrew/opt/rustup/bin/cargo
+Rust sysroot: /Users/runner/.rustup/toolchains/stable-aarch64-apple-darwin
+cargo
+cargo-clippy
+cargo-fmt
+clippy-driver
+rust-gdb
+rust-gdbgui
+rust-lldb
+rustc
+rustdoc
+rustfmt
+aarch64-apple-darwin
+aarch64-apple-ios
+components
+etc
+manifest-cargo-aarch64-apple-darwin
+manifest-clippy-preview-aarch64-apple-darwin
+manifest-rust-std-aarch64-apple-darwin
+manifest-rust-std-aarch64-apple-ios
+manifest-rustc-aarch64-apple-darwin
+manifest-rustfmt-preview-aarch64-apple-darwin
+multirust-channel-manifest.toml
+multirust-config.toml
+rust-installer-version
+rustc 1.100.0 (0ef1bc386 2026-11-09)
+cargo 1.100.0 (3acc79c0c 2026-11-05)
+Using /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/21/lib/darwin/libclang_rt.ios.a
+Using libc++ headers from /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.5.sdk/usr/include/c++/v1
+ 0:06.62 W Warnings in third-party code are being suppressed from the terminal output. Use --show-all-warnings or --verbose to see them.
+ 0:06.62 W All warnings will still be dumped to /Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/engine/firefox/obj-aarch64-apple-ios/.mozbuild/logs/build/warnings_*.json at the end of the build.
+Creating the 'mach' site at /Users/runner/.mozbuild/srcdirs/firefox-ccc4a778e677/_virtualenvs/mach
+Creating the 'build' site at /Users/runner/.mozbuild/srcdirs/firefox-ccc4a778e677/_virtualenvs/build
+ 0:06.79 Clobber not needed.
+ 0:06.79 Config object not found by mach.
+ 0:07.16 Using Python 3.12.16 from /Users/runner/.mozbuild/srcdirs/firefox-ccc4a778e677/_virtualenvs/build/bin/python
+ 0:07.16 Adding configure options from /Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/engine/firefox/.mozconfig
+ 0:07.16   --enable-application=mobile/ios
+ 0:07.16   --target=aarch64-apple-ios
+ 0:07.16   --enable-ios-target=12.4
+ 0:07.16   --enable-webrtc
+ 0:07.16   --enable-optimize
+ 0:07.16   --disable-debug
+ 0:07.16   --disable-tests
+ 0:07.16   --with-wasi-sysroot=/Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/tools/development/wasi-sdk/share/wasi-sysroot
+ 0:07.16   --with-ccache=/Users/runner/hostedtoolcache/sccache/0.19.0/arm64/sccache
+ 0:07.16   --disable-jemalloc
+ 0:07.16   WASM_CXX=/Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/tools/development/wasi-sdk/bin/clang++
+ 0:07.16   WASM_CC=/Users/runner/work/reynard-browser-ios12/reynard-browser-ios12/tools/development/wasi-sdk/bin/clang
+ 0:07.16 checking for vcs source checkout... git
+ 0:07.21 checking for a shell... /bin/sh
+ 0:07.25 checking for host system type... aarch64-apple-darwin25.6.0
+ 0:07.27 checking for target system type... aarch64-apple-ios
+ 0:07.52 checking whether cross compiling... yes
+ 0:07.59 checking if configuration file confvars.sh exists... no
+ 0:07.59 checking if configuration file configure.sh exists... no
+ 0:07.60 checking for Python 3... /Users/runner/.mozbuild/srcdirs/firefox-ccc4a778e677/_virtualenvs/build/bin/python (3.12.16)
+ 0:07.60 checking for git... /opt/homebrew/bin/git
+ 0:07.62 checking for Git version... 2.56.0
+ 0:07.71 checking for ccache... /Users/runner/hostedtoolcache/sccache/0.19.0/arm64/sccache
+ 0:07.74 Using target sysroot in /Applications/Xcode_26.6.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.5.sdk
+ 0:07.75 Using host sysroot in /Applications/Xcode_26.6.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.sdk
+ 0:07.75 checking for the target C compiler... /opt/homebrew/opt/llvm@20/bin/clang
+ 0:10.70 checking whether the target C compiler can be used... yes
+ 0:10.70 checking the target C compiler version... 20.1.8
+ 0:10.89 checking the target C compiler works... yes
+ 0:10.89 W WARNING: The value of LD is not used by this build system.
+ 0:10.89 checking for the target C++ compiler... /opt/homebrew/opt/llvm@20/bin/clang++
+ 0:11.07 checking whether the target C++ compiler can be used... yes
+ 0:11.07 checking the target C++ compiler version... 20.1.8
+ 0:11.18 checking the target C++ compiler works... yes
+ 0:11.18 checking for the host C compiler... /opt/homebrew/opt/llvm@20/bin/clang
+ 0:11.21 checking whether the host C compiler can be used... yes
+ 0:11.21 checking the host C compiler version... 20.1.8
+ 0:11.35 checking the host C compiler works... yes
+ 0:11.35 checking for the host C++ compiler... /opt/homebrew/opt/llvm@20/bin/clang++
+ 0:11.43 checking whether the host C++ compiler can be used... yes
+ 0:11.43 checking the host C++ compiler version... 20.1.8
+ 0:11.56 checking the host C++ compiler works... yes
+ 0:12.04 checking for target linker... lld
+ 0:12.13 checking for host linker... lld
+ 0:12.46 checking for 64-bit OS... yes
+ 0:12.82 checking for __thread keyword for TLS variables... yes
+ 0:12.98 checking for unwind.h... yes
+ 0:13.09 checking for _Unwind_Backtrace... yes
+ 0:13.10 checking for the assembler... /opt/homebrew/opt/llvm@20/bin/clang
+ 0:13.12 checking for llvm-objdump... /opt/homebrew/Cellar/llvm@20/20.1.8/bin/llvm-objdump
+ 0:13.15 checking for ar... /opt/homebrew/Cellar/llvm@20/20.1.8/bin/llvm-ar
+ 0:13.38 checking whether ar supports response files... yes
+ 0:13.42 checking for host_ar... /opt/homebrew/Cellar/llvm@20/20.1.8/bin/llvm-ar
+ 0:13.56 checking for i8mm target feature... yes
+ 0:13.72 checking for ARM SVE2 target feature... yes
+ 0:13.85 checking for ARM dotprod target feature... yes
+ 0:13.86 checking for pkg_config... /opt/homebrew/bin/pkg-config
+ 0:13.89 checking for pkg-config version... 3.0.10
+ 0:13.89 checking whether pkg-config is pkgconf... yes
+ 0:13.89 W WARNING: When not building jemalloc, you need to build with --with-redist or set WIN32_REDIST_DIR.
+ 0:13.99 checking for strndup... yes
+ 0:14.08 checking for posix_memalign... yes
+ 0:14.17 checking for memalign... no
+ 0:14.26 checking for malloc_usable_size... no
+ 0:14.31 checking for malloc.h... no
+ 0:14.35 checking for malloc_np.h... no
+ 0:14.56 checking for malloc/malloc.h... yes
+ 0:14.71 checking for stdint.h... yes
+ 0:14.84 checking for inttypes.h... yes
+ 0:14.97 checking for alloca.h... yes
+ 0:15.01 checking for sys/byteorder.h... no
+ 0:15.18 checking for getopt.h... yes
+ 0:15.31 checking for unistd.h... yes
+ 0:15.54 checking for nl_types.h... yes
+ 0:15.58 checking for cpuid.h... no
+ 0:15.67 checking for fts.h... yes
+ 0:15.78 checking for sys/statvfs.h... yes
+ 0:15.82 checking for sys/statfs.h... no
+ 0:15.89 checking for sys/vfs.h... no
+ 0:16.02 checking for sys/mount.h... yes
+ 0:16.14 checking for sys/quota.h... no
+ 0:16.21 checking for sys/queue.h... yes
+ 0:16.35 checking for sys/types.h... yes
+ 0:16.44 checking for netinet/in.h... yes
+ 0:16.47 checking for byteswap.h... no
+ 0:16.57 checking for memfd_create in sys/mman.h... no
+ 0:16.67 checking for clock_gettime(CLOCK_MONOTONIC)... yes
+ 0:16.83 checking for res_ninit()... no
+ 0:16.92 checking for dladdr... yes
+ 0:17.01 checking for gethostbyname_r in -lc_r... no
+ 0:17.11 checking for socket in -lsocket... no
+ 0:17.20 checking for pthread.h... yes
+ 0:17.30 checking whether the C compiler supports -pthread... yes
+ 0:17.62 checking whether 64-bits std::atomic requires -latomic... no
+ 0:17.83 checking whether the C++ compiler supports -Wdeprecated-literal-operator... yes
+ 0:18.01 checking whether the C compiler supports -Winvalid-utf8... yes
+ 0:18.18 checking whether the C++ compiler supports -Winvalid-utf8... yes
+ 0:18.31 checking whether the C compiler supports -Wduplicate-method-arg... yes
+ 0:18.44 checking whether the C++ compiler supports -Wduplicate-method-arg... yes
+ 0:18.54 checking whether the C compiler supports -Wduplicate-method-match... yes
+ 0:18.70 checking whether the C++ compiler supports -Wduplicate-method-match... yes
+ 0:18.78 checking whether the C compiler supports -Wmissing-method-return-type... yes
+ 0:18.90 checking whether the C++ compiler supports -Wmissing-method-return-type... yes
+ 0:19.02 checking whether the C compiler supports -Wobjc-signed-char-bool... yes
+ 0:19.11 checking whether the C++ compiler supports -Wobjc-signed-char-bool... yes
+ 0:19.27 checking whether the C compiler supports -Wsemicolon-before-method-body... yes
+ 0:19.36 checking whether the C++ compiler supports -Wsemicolon-before-method-body... yes
+ 0:19.46 checking whether the C compiler supports -Wsuper-class-method-mismatch... yes
+ 0:19.57 checking whether the C++ compiler supports -Wsuper-class-method-mismatch... yes
+ 0:19.64 checking whether the C compiler supports -Wformat... yes
