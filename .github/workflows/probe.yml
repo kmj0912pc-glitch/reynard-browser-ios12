@@ -27,6 +27,11 @@ jobs:
             gh run rerun "$RID" -R "$REPO" > out/rerun.txt 2>&1 || true
             sleep 20
           fi
+          FID=$(printf '%s\n' "$MSG" | sed -n 's/^rerunfailed \([0-9][0-9]*\)$/\1/p' | head -1)
+          if [ -n "$FID" ]; then
+            gh run rerun "$FID" -R "$REPO" --failed > out/rerun.txt 2>&1 || true
+            sleep 20
+          fi
           date -u > out/when.txt
           gh run list -R "$REPO" --limit 20 \
             --json databaseId,number,workflowName,displayTitle,headBranch,headSha,event,status,conclusion,createdAt,startedAt,updatedAt \
@@ -73,10 +78,10 @@ jobs:
             J=$(gh api "repos/$REPO/actions/runs/$RID/jobs" -q '[.jobs[] | {s: .status, c: .conclusion, r: .runner_name}]')
             ST=$(gh api "repos/$REPO/actions/runs/$RID" -q .status)
             echo "$(date -u +%T) run=$ST jobs=$J"
-            if echo "$J" | grep -q '"r":"[^"]\+"'; then echo "runner assigned"; exit 0; fi
+            if echo "$J" | grep '"s":"in_progress"' | grep -q '"r":"[^"]\+"'; then echo "runner assigned"; exit 0; fi
             if [ "$ST" = completed ]; then
               if echo "$J" | grep -q '"c":"success"'; then exit 0; fi
-              gh run rerun "$RID" -R "$REPO" || gh run rerun "$RID" -R "$REPO" --failed || true
+              gh run rerun "$RID" -R "$REPO" --failed || gh run rerun "$RID" -R "$REPO" || true
               sleep 30
             fi
             sleep 60
